@@ -1,10 +1,17 @@
 import DashboardLayout from "@/components/layout/DashboardLayout";
-import Dashboard from "@/components/dashboard/Dashboard";
+import PostComposer from "@/components/composer/PostComposer";
+import ShareModal from "@/components/ShareModal";
 
-export default function Home() {
+export default function CreatePage() {
   return (
     <DashboardLayout>
-      <Dashboard />
+      <div className="p-6">
+        <PostComposer />
+        
+        <div className="mt-6">
+          <ShareModal />
+        </div>
+      </div>
     </DashboardLayout>
   );
 }

@@ -1,31 +1,25 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
-import ClientBody from "./ClientBody";
+"use client";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
+import { ReactNode } from "react";
+import { cn } from "@/lib/utils"; // Import cn
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+interface DashboardLayoutProps {
+  children: ReactNode;
+}
 
-export const metadata: Metadata = {
-  title: "SocialSync Clone",
-  description: "A clone of SocialSync's dashboard interface",
-};
-
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function DashboardLayout({ children }: DashboardLayoutProps) {
   return (
-    <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
-      <ClientBody>{children}</ClientBody>
-    </html>
+    // Use background/foreground from config
+    <div className={cn("min-h-screen flex flex-col bg-background text-foreground")}>
+      {/* Use card/border/card-foreground from config */}
+      <header className={cn("bg-card shadow border-b border-border p-4")}>
+        <h1 className="text-2xl font-bold text-card-foreground">SocialSync Dashboard</h1>
+      </header>
+      <main className="flex-1 p-6">{children}</main>
+       {/* Use card/border/muted-foreground from config */}
+      <footer className={cn("bg-card shadow p-4 text-center text-sm border-t border-border text-muted-foreground")}>
+        © {new Date().getFullYear()} SocialSync. All rights reserved.
+      </footer>
+    </div>
   );
 }
