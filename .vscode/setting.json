@@ -1,75 +1,31 @@
 {
-  // If this setting is false, no telemetry will be sent regardless of the new setting's value. Deprecated due to being combined into the `telemetry.telemetryLevel` setting.
-  // Enable crash reports to be collected. This helps us improve stability. 
-  // This option requires restart to take effect.
-  "telemetry.enableCrashReporter": true,
-
-  // Enable feedback mechanisms such as the issue reporter, surveys, and feedback options in features like Copilot Chat.
-  "telemetry.feedback.enabled": true,
-
-  // Controls whether the editor shows CodeLens.
-  "diffEditor.codeLens": false,
-
-  // 
-  //  - legacy: Uses the legacy diffing algorithm.
-  //  - advanced: Uses the advanced diffing algorithm.
-  "diffEditor.diffAlgorithm": "advanced",
-
-  // Controls whether the diff editor shows empty decorations to see where characters got inserted or deleted.
-  "diffEditor.experimental.showEmptyDecorations": true,
-
-  // Controls whether the diff editor should show detected code moves.
-  "diffEditor.experimental.showMoves": false,
-
-  // If enabled and the editor uses the inline view, word changes are rendered inline.
-  "diffEditor.experimental.useTrueInlineView": false,
-
-  // Controls how many lines are used as context when comparing unchanged regions.
-  "diffEditor.hideUnchangedRegions.contextLineCount": 3,
-
-  // Controls whether the diff editor shows unchanged regions.
-  "diffEditor.hideUnchangedRegions.enabled": false,
-
-  // Controls how many lines are used as a minimum for unchanged regions.
-  "diffEditor.hideUnchangedRegions.minimumLineCount": 3,
-
-  // Controls how many lines are used for unchanged regions.
-  "diffEditor.hideUnchangedRegions.revealLineCount": 20,
-
-  // When enabled, the diff editor ignores changes in leading or trailing whitespace.
-  "diffEditor.ignoreTrimWhitespace": true,
-
-  // Timeout in milliseconds after which diff computation is cancelled. Use 0 for no timeout.
-  "diffEditor.maxComputationTime": 5000,
-
-  // Maximum file size in MB for which to compute diffs. Use 0 for no limit.
-  "diffEditor.maxFileSize": 50,
-
-  // When enabled, the diff editor shows a special gutter for revert and stage actions.
-  "diffEditor.renderGutterMenu": true,
-
-  // Controls whether the diff editor shows +/- indicators for added/removed changes.
-  "diffEditor.renderIndicators": true,
-
-  // When enabled, the diff editor shows arrows in its glyph margin to revert changes.
-  "diffEditor.renderMarginRevertIcon": true,
-
-  // Controls whether the diff editor shows the diff side by side or inline.
-  "diffEditor.renderSideBySide": true,
-
-  // If the diff editor width is smaller than this value, the inline view is used.
-  "diffEditor.renderSideBySideInlineBreakpoint": 900,
-
-  // If enabled and the editor width is too small, the inline view is used.
-  "diffEditor.useInlineViewWhenSpaceIsLimited": true,
-
-  // Tailwind CSS settings
-  "css.validate": false,
-  "tailwindCSS.includeLanguages": {
-    "typescript": "javascript",
-    "typescriptreact": "javascript"
-  },
-  "editor.quickSuggestions": {
-    "strings": true
+    "telemetry.enableCrashReporter": true,
+    "telemetry.feedback.enabled": true,
+    "diffEditor.codeLens": false,
+    "diffEditor.diffAlgorithm": "advanced",
+    "diffEditor.experimental.showEmptyDecorations": true,
+    "diffEditor.experimental.showMoves": false,
+    "diffEditor.experimental.useTrueInlineView": false,
+    "diffEditor.hideUnchangedRegions.contextLineCount": 3,
+    "diffEditor.hideUnchangedRegions.enabled": false,
+    "diffEditor.hideUnchangedRegions.minimumLineCount": 3,
+    "diffEditor.hideUnchangedRegions.revealLineCount": 20,
+    "diffEditor.ignoreTrimWhitespace": true,
+    "diffEditor.maxComputationTime": 5000,
+    "diffEditor.maxFileSize": 50,
+    "diffEditor.renderGutterMenu": true,
+    "diffEditor.renderIndicators": true,
+    "diffEditor.renderMarginRevertIcon": true,
+    "diffEditor.renderSideBySide": true,
+    "diffEditor.renderSideBySideInlineBreakpoint": 900,
+    "diffEditor.useInlineViewWhenSpaceIsLimited": true,
+    "css.validate": false,
+    "tailwindCSS.includeLanguages": {
+      "typescript": "javascript",
+      "typescriptreact": "javascript"
+    },
+    "editor.quickSuggestions": {
+      "strings": true
+    }
   }
-}
+  
