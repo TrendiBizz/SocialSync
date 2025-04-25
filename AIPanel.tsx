@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react'
-import { Alert } from '@ds/comp-alert'
+// import { Alert } from '@ds/comp-alert'
 
 import { connect as reduxConnect } from 'react-redux'
 import { compose } from 'fe-hoc-compose'
