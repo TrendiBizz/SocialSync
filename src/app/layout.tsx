@@ -1,25 +1,26 @@
-"use client";
+import React, { useState, useEffect } from 'react';
 
-import { ReactNode } from "react";
-import { cn } from "@/lib/utils"; // Import cn
+const RootLayout = ({ children }: { children: React.ReactNode }) => {
+  const [isClient, setIsClient] = useState(false);
 
-interface DashboardLayoutProps {
-  children: ReactNode;
-}
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
 
-export default function DashboardLayout({ children }: DashboardLayoutProps) {
+  if (!isClient) return null; // Don't render anything on the server side
+
   return (
-    // Use background/foreground from config
-    <div className={cn("min-h-screen flex flex-col bg-background text-foreground")}>
-      {/* Use card/border/card-foreground from config */}
-      <header className={cn("bg-card shadow border-b border-border p-4")}>
-        <h1 className="text-2xl font-bold text-card-foreground">SocialSync Dashboard</h1>
-      </header>
-      <main className="flex-1 p-6">{children}</main>
-       {/* Use card/border/muted-foreground from config */}
-      <footer className={cn("bg-card shadow p-4 text-center text-sm border-t border-border text-muted-foreground")}>
-        © {new Date().getFullYear()} SocialSync. All rights reserved.
-      </footer>
-    </div>
+    <html lang="en">
+      <head>
+        <meta charSet="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>My App</title>
+      </head>
+      <body>
+        {children} {/* Render child components */}
+      </body>
+    </html>
   );
-}
+};
+
+export default RootLayout;

@@ -1,17 +1,14 @@
-import DashboardLayout from "@/components/layout/DashboardLayout";
-import PostComposer from "@/components/composer/PostComposer";
-import ShareModal from "@/components/ShareModal";
+// src/app/page.tsx
 
-export default function CreatePage() {
+import ShareModal from '@/components/ShareModal';  // Ensure default import
+
+const Page = () => {
   return (
-    <DashboardLayout>
-      <div className="p-6">
-        <PostComposer />
-        
-        <div className="mt-6">
-          <ShareModal />
-        </div>
-      </div>
-    </DashboardLayout>
+    <div>
+      <h1>Welcome to the Home Page</h1>
+      <ShareModal />
+    </div>
   );
-}
+};
+
+export default Page;
