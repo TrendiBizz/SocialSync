@@ -4,6 +4,7 @@
   "description": "This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).",
   "main": "370-69e7cd4d5892e9d0.js",
   "dependencies": {
+    "@radix-ui/react-tabs": "^1.1.9",
     "acorn": "^8.14.1",
     "acorn-jsx": "^5.3.2",
     "ajv": "^6.12.6",
