@@ -7,10 +7,11 @@ on:
 
 jobs:
   deploy:
-    name: Build & Deploy to Firebase Hosting
     runs-on: ubuntu-latest
-
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
       - name: Stub CaptionSelectionProps type
         run: |
           mkdir -p src/types
@@ -20,9 +21,6 @@ jobs:
             onSelect: (caption: string) => void;
           }
           EOF
-
-      - name: Checkout repository
-        uses: actions/checkout@v3
 
       - name: Use Node.js 18
         uses: actions/setup-node@v3
