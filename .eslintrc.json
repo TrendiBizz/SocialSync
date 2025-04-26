@@ -1,0 +1,10 @@
+﻿{
+  "extends": "next/core-web-vitals",
+  "rules": {
+    "no-unused-vars": "warn",
+    "import/no-unresolved": "off"
+  },
+  "parserOptions": {
+    "project": null
+  }
+}
