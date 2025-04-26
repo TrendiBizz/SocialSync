@@ -1,10 +1,13 @@
-/** @type {import('next').NextConfig} */
+﻿/** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export',
-  distDir: 'out',
-  assetPrefix: '/',
-  images: { unoptimized: true },
-  trailingSlash: false
-}
+  experimental: {
+    appDir: true,
+  },
+  webpack: (config) => {
+    config.resolve.alias['@'] = require('path').resolve(__dirname, 'src');
+    return config;
+  },
+  output: 'export'
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;
