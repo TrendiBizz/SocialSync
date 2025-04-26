@@ -1,16 +1,14 @@
-import React, { FC, ReactNode } from "react";
+import React, { FC, ReactNode } from 'react';
 
 export interface SelectProps {
   children?: ReactNode;
   [key: string]: any;
 }
 
-// Default wrapper
 const Select: FC<SelectProps> = ({ children, ...rest }) => (
   <select {...rest}>{children}</select>
 );
 
-// These are all re-exports or simple facades
 export const SelectTrigger: FC<SelectProps> = ({ children, ...rest }) => (
   <select {...rest}>{children}</select>
 );
