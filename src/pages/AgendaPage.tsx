@@ -23,7 +23,7 @@ const AgendaPage: React.FC = () => {
           <p className="text-gray-700 mb-3">{event.date}</p>
           {event.description && <p className="text-gray-600 mb-3">{event.description}</p>}
           <InstagramProductTagsCombobox
-            onSelectTag={tag => console.log(\Selected tag "\" for event \\)}
+            onSelectTag={tag => console.log(`Selected tag "${tag}" for event ${event.id}`)}
           />
         </div>
       ))}
