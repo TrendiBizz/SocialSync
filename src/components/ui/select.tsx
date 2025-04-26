@@ -5,7 +5,8 @@ export interface SelectProps {
   [key: string]: any;
 }
 
-const Select: FC<SelectProps> = ({ children, ...rest }) => (
+// Named export now:
+export const Select: FC<SelectProps> = ({ children, ...rest }) => (
   <select {...rest}>{children}</select>
 );
 
@@ -31,4 +32,5 @@ export const SelectItem: FC<SelectProps & { value: string }> = ({
   </option>
 );
 
+// Keep default for backwards-compatibility:
 export default Select;
