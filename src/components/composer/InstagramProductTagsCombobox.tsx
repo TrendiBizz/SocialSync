@@ -1,16 +1,16 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback } from "react";
 
 export interface InstagramProductTagsComboboxProps {
   onSelectTag: (tag: string) => void;
 }
 
 const InstagramProductTagsCombobox: React.FC<InstagramProductTagsComboboxProps> = ({ onSelectTag }) => {
-  const [query, setQuery] = useState('');
+  const [query, setQuery] = useState("");
   const [suggestions, setSuggestions] = useState<string[]>([]);
 
   const fetchTags = useCallback(async (search: string) => {
     // TODO: replace with your actual tag-fetching endpoint
-    const res = await fetch(\/api/instagram-tags?q=\\);
+    const res = await fetch(`/api/instagram-tags?q=${encodeURIComponent(search)}`);
     const data = await res.json();
     setSuggestions(data.tags || []);
   }, []);
@@ -25,7 +25,7 @@ const InstagramProductTagsCombobox: React.FC<InstagramProductTagsComboboxProps> 
 
   const handleSelect = (tag: string) => {
     onSelectTag(tag);
-    setQuery('');
+    setQuery("");
     setSuggestions([]);
   };
 
