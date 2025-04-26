@@ -1,6 +1,6 @@
 ﻿import { useRef, useState, useEffect } from "react";
 import { CaptionSelectionProps } from "@/types";
-import { ListContainer } from "../featureSelection/featureSelection.styles.ts";
+import { ListContainer } from "./featureSelection.styles.ts";
 import { SyncContainer, NoCaptionsTitle, NoCaptionsMessage } from "./Caption.styles";
 import { FaSyncAlt } from "react-icons/fa";
 
