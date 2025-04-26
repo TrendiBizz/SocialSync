@@ -1,52 +1,77 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useRef } from 'react';
+import axios from 'axios';
 
 export interface InstagramProductTagsComboboxProps {
-  onSelectTag: (tag: string) => void;
+  onTagSelect: (tag: string) => void;
 }
 
-const InstagramProductTagsCombobox: React.FC<InstagramProductTagsComboboxProps> = ({ onSelectTag }) => {
-  const [query, setQuery] = useState("");
+const InstagramProductTagsCombobox: React.FC<InstagramProductTagsComboboxProps> = ({ onTagSelect }) => {
+  const [query, setQuery] = useState('');
   const [suggestions, setSuggestions] = useState<string[]>([]);
-
-  const fetchTags = useCallback(async (search: string) => {
-    // TODO: replace with your actual tag-fetching endpoint
-    const res = await fetch(`/api/instagram-tags?q=${encodeURIComponent(search)}`);
-    const data = await res.json();
-    setSuggestions(data.tags || []);
-  }, []);
+  const [isOpen, setIsOpen] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (query.length > 2) {
-      fetchTags(query);
-    } else {
-      setSuggestions([]);
-    }
-  }, [query, fetchTags]);
+    const fetchTags = async () => {
+      if (query.length < 3) {
+        setSuggestions([]);
+        return;
+      }
+      try {
+        const response = await axios.get(
+          \https://www.instagram.com/web/search/topsearch/?query=\\
+        );
+        const tags = response.data.hashtags.map((item: any) => item.hashtag.name);
+        setSuggestions(tags);
+      } catch (error) {
+        console.error('Error fetching Instagram tags:', error);
+      }
+    };
 
-  const handleSelect = (tag: string) => {
-    onSelectTag(tag);
-    setQuery("");
-    setSuggestions([]);
+    fetchTags();
+  }, [query]);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (containerRef.current && !containerRef.current.contains(event.target as Node)) {
+        setIsOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setQuery(e.target.value);
+    setIsOpen(true);
+  };
+
+  const handleSuggestionClick = (tag: string) => {
+    setQuery(tag);
+    setIsOpen(false);
+    onTagSelect(tag);
   };
 
   return (
-    <div className="instagram-tags-combobox">
+    <div ref={containerRef} className="relative w-full">
       <input
         type="text"
-        placeholder="Search Instagram tags..."
         value={query}
-        onChange={e => setQuery(e.target.value)}
-        className="border p-2 rounded w-full"
+        onChange={handleInputChange}
+        placeholder="Search Instagram Tags"
+        className="border rounded p-2 w-full"
       />
-      {suggestions.length > 0 && (
-        <ul className="border mt-1 rounded bg-white max-h-48 overflow-auto">
-          {suggestions.map(tag => (
+      {isOpen && suggestions.length > 0 && (
+        <ul className="absolute z-10 bg-white border rounded w-full max-h-60 overflow-y-auto">
+          {suggestions.map((tag) => (
             <li
               key={tag}
-              onClick={() => handleSelect(tag)}
-              className="p-2 hover:bg-gray-100 cursor-pointer"
+              onClick={() => handleSuggestionClick(tag)}
+              className="p-2 cursor-pointer hover:bg-gray-200"
             >
-              #{tag}
+              {#}
             </li>
           ))}
         </ul>
