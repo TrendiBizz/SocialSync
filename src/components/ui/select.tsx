@@ -1,61 +1,36 @@
-// src/components/ui/select.tsx
-import React, { useState, useCallback } from 'react';
-import { difference } from 'lodash';  // Import difference from lodash
+import React, { FC, ReactNode } from "react";
 
-interface ComboboxProps {
-  options: string[];
-  onChange: (values: string[]) => void;
-  placeholder?: string;
-  multiple?: boolean;
+export interface SelectProps {
+  children?: ReactNode;
+  [key: string]: any;
 }
 
-const Combobox: React.FC<ComboboxProps> = ({
-  options,
-  onChange,
-  placeholder = 'Select an option',
-  multiple = false,
-}) => {
-  const [inputValue, setInputValue] = useState('');
-  const [selectedValues, setSelectedValues] = useState<string[]>([]);
-  const filteredOptions = options.filter((option) =>
-    option.toLowerCase().includes(inputValue.toLowerCase())
-  );
+// Default wrapper
+const Select: FC<SelectProps> = ({ children, ...rest }) => (
+  <select {...rest}>{children}</select>
+);
 
-  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setInputValue(event.target.value);
-  };
+// These are all re-exports or simple facades
+export const SelectTrigger: FC<SelectProps> = ({ children, ...rest }) => (
+  <select {...rest}>{children}</select>
+);
 
-  const handleOptionClick = (value: string) => {
-    if (multiple) {
-      setSelectedValues((prev) => {
-        if (prev.includes(value)) {
-          return prev.filter((v) => v !== value);
-        } else {
-          return [...prev, value];
-        }
-      });
-    } else {
-      setSelectedValues([value]);
-    }
-  };
+export const SelectValue: FC<SelectProps> = ({ children, ...rest }) => (
+  <span {...rest}>{children}</span>
+);
 
-  return (
-    <div>
-      <input
-        type="text"
-        placeholder={placeholder}
-        value={inputValue}
-        onChange={handleInputChange}
-      />
-      <ul>
-        {filteredOptions.map((option) => (
-          <li key={option} onClick={() => handleOptionClick(option)}>
-            {option}
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-};
+export const SelectContent: FC<SelectProps> = ({ children, ...rest }) => (
+  <div {...rest}>{children}</div>
+);
 
-export default Combobox;
+export const SelectItem: FC<SelectProps & { value: string }> = ({
+  children,
+  value,
+  ...rest
+}) => (
+  <option value={value} {...rest}>
+    {children}
+  </option>
+);
+
+export default Select;
