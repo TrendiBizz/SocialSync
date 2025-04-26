@@ -4,7 +4,7 @@ import { useWithI18n } from 'fe-lib-i18n'
 
 import { capitalizeFirstLetter } from '@/components/message-edit/message-tab-bar/helpers'
 import { TONES } from '../../constants'
-import { ToneSelectionProps } from '../../types'
+import { ToneSelectionProps } from '@/types'
 import { ListContainer } from '../FeatureSelection/FeatureSelection.styles'
 import Tone from './Tone'
 import { Description } from './ToneSelection.styles'

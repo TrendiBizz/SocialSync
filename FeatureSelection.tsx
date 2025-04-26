@@ -7,7 +7,7 @@ import SparklesIcon from '@fp-icons/symbol-sparkles'
 import { useWithI18n } from 'fe-lib-i18n'
 
 import { AI_FEATURES, useI18nFeatureToDisplayName } from '../../constants'
-import { FeatureSelectionProps } from '../../types'
+import { FeatureSelectionProps } from '@/types'
 import Feature from './Feature'
 import { ListContainer } from './FeatureSelection.styles'
 

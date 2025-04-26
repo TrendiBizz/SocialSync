@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { ToneProps } from '../../types'
+import { ToneProps } from '@/types'
 import { ListItem } from '../FeatureSelection/Feature.styles'
 import { Title } from './Tone.styles'
 

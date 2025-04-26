@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { useWithI18n } from 'fe-lib-i18n'
-import { CaptionSelectionProps } from '../../types'
+import { CaptionSelectionProps } from '@/types'
 import { ListContainer } from '../FeatureSelection/FeatureSelection.styles'
 import Caption from './Caption'
 import { SvgContainer, NoCaptionsTitle, NoCaptionsMessage } from './Caption.styles'

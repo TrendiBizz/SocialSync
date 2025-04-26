@@ -4,7 +4,7 @@ import { BouncingBars } from 'fe-comp-loader'
 import { useWithI18n } from 'fe-lib-i18n'
 
 import { AI_FEATURES } from '../../constants'
-import { AIPanelContentProps } from '../../types'
+import { AIPanelContentProps } from '@/types'
 import CaptionSelection from '../CaptionSelection'
 import FeatureSelection from '../FeatureSelection'
 import ToneSelection from '../ToneSelection'
