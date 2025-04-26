@@ -1,3 +1,5 @@
+"use client"; // This will mark the component as client-side
+
 import React, { useState, useEffect } from 'react';
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
@@ -7,7 +9,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
     setIsClient(true);
   }, []);
 
-  if (!isClient) return null; // Don't render anything on the server side
+  if (!isClient) return null; // This ensures that it doesn't render server-side
 
   return (
     <html lang="en">
@@ -17,7 +19,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
         <title>My App</title>
       </head>
       <body>
-        {children} {/* Render child components */}
+        {children}
       </body>
     </html>
   );
