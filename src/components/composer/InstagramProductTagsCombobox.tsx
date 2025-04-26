@@ -18,9 +18,8 @@ const InstagramProductTagsCombobox: React.FC<InstagramProductTagsComboboxProps> 
         return;
       }
       try {
-        const response = await axios.get(
-          \https://www.instagram.com/web/search/topsearch/?query=\\
-        );
+        const url = \https://www.instagram.com/web/search/topsearch/?query=\\;
+        const response = await axios.get(url);
         const tags = response.data.hashtags.map((item: any) => item.hashtag.name);
         setSuggestions(tags);
       } catch (error) {
