@@ -15,12 +15,7 @@ jobs:
       - name: Stub CaptionSelectionProps type
         run: |
           mkdir -p src/types
-          cat << 'EOF' > src/types/index.ts
-          export interface CaptionSelectionProps {
-            selectedCaption: string;
-            onSelect: (caption: string) => void;
-          }
-          EOF
+          printf '\''export interface CaptionSelectionProps {\n  selectedCaption: string;\n  onSelect: (caption: string) => void;\n}\n'\'' > src/types/index.ts
 
       - name: Use Node.js 18
         uses: actions/setup-node@v3
