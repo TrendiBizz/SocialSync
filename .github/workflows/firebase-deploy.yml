@@ -11,6 +11,16 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Stub CaptionSelectionProps type
+        run: |
+          mkdir -p src/types
+          cat << 'EOF' > src/types/index.ts
+          export interface CaptionSelectionProps {
+            selectedCaption: string;
+            onSelect: (caption: string) => void;
+          }
+          EOF
+
       - name: Checkout repository
         uses: actions/checkout@v3
 
