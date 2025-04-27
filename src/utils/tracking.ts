@@ -1,1 +1,3 @@
-export const track = (event: string) => console.log(\Tracking event: \\);
+﻿export const track = (event: string) => {
+  console.log(`Tracking event: ${event}`);
+};

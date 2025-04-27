@@ -1,0 +1,1682 @@
+npx tsc --noEmit
+>>
+approver-area.tsx:47:37 - error TS2709: Cannot use namespace 'ApproverAreaProps' as a type.
+
+47 export const ApproverArea: React.FC<ApproverAreaProps> = ({
+                                       ~~~~~~~~~~~~~~~~~
+
+approver-area.tsx:59:29 - error TS2554: Expected 0 arguments, but got 1.
+
+ 59   const $i18n = useWithI18n({
+                                ~
+ 60     title: 'Request approval',
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+...
+ 64     noApprovers: "You don't have team members with permission to approve posts for the selected accounts.",
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 65   })
+    ~~~
+
+approver-area.tsx:67:46 - error TS2709: Cannot use namespace 'Approvers' as a type.
+
+67   const [approvers, setApprovers] = useState<Approvers>([])
+                                                ~~~~~~~~~
+
+approver-area.tsx:69:62 - error TS2709: Cannot use namespace 'OneTimeReviewers' as a type.
+
+69   const [selectedApprovers, setSelectedApprovers] = useState<OneTimeReviewers>(null)
+                                                                ~~~~~~~~~~~~~~~~
+
+approver-area.tsx:77:67 - error TS7006: Parameter 'profile' implicitly has an 'any' type.
+
+77         const privateSocialProfileIds = privateSocialProfiles.map(profile => profile.socialProfileId)
+                                                                     ~~~~~~~
+
+approver-area.tsx:78:38 - error TS7006: Parameter 'id' implicitly has an 'any' type.
+
+78         return socialProfileIds.some(id => privateSocialProfileIds.includes(id))
+                                        ~~
+
+approver-area.tsx:113:39 - error TS7006: Parameter 'isInvalid' implicitly has an 'any' type.
+
+113     const setInvalidOneTimeReviewer = isInvalid => {
+                                          ~~~~~~~~~
+
+approver-area.tsx:144:9 - error TS7006: Parameter 'approver' implicitly has an 'any' type.
+
+144         approver => approver.type === OneTimeReviewerTypes.MESSAGE_LEVEL && approver.id === memberId,
+            ~~~~~~~~
+
+approver-area.tsx:151:37 - error TS7006: Parameter 'approver' implicitly has an 'any' type.
+
+151           selectedApprovers?.filter(approver => approver.id !== memberId) ?? null
+                                        ~~~~~~~~
+
+approver-area.tsx:158:37 - error TS7031: Binding element 'id' implicitly has an 'any' type.
+
+158           selectedApprovers.some(({ id, type }) => {
+                                        ~~
+
+approver-area.tsx:158:41 - error TS7031: Binding element 'type' implicitly has an 'any' type.
+
+158           selectedApprovers.some(({ id, type }) => {
+                                            ~~~~
+
+approver-area.tsx:160:38 - error TS7006: Parameter 'approver' implicitly has an 'any' type.
+
+160               return !approvers.some(approver => (approver as ApproverMember).memberId === id)
+                                         ~~~~~~~~
+
+approver-area.tsx:160:63 - error TS2709: Cannot use namespace 'ApproverMember' as a type.
+
+160               return !approvers.some(approver => (approver as ApproverMember).memberId === id)
+                                                                  ~~~~~~~~~~~~~~
+
+approver-area.tsx:162:38 - error TS7006: Parameter 'approver' implicitly has an 'any' type.
+
+162               return !approvers.some(approver => (approver as ApproverTeam).teamId === id)
+                                         ~~~~~~~~
+
+approver-area.tsx:162:63 - error TS2709: Cannot use namespace 'ApproverTeam' as a type.
+
+162               return !approvers.some(approver => (approver as ApproverTeam).teamId === id)
+                                                                  ~~~~~~~~~~~~
+
+approver-area.tsx:174:11 - error TS7034: Variable 'activePills' implicitly has type 'any[]' in some locations where its type cannot be determined.
+
+174     const activePills = []
+              ~~~~~~~~~~~
+
+approver-area.tsx:176:36 - error TS7031: Binding element 'id' implicitly has an 'any' type.
+
+176       selectedApprovers.forEach(({ id, type }) => {
+                                       ~~
+
+approver-area.tsx:176:40 - error TS7031: Binding element 'type' implicitly has an 'any' type.
+
+176       selectedApprovers.forEach(({ id, type }) => {
+                                           ~~~~
+
+approver-area.tsx:177:41 - error TS7006: Parameter 'a' implicitly has an 'any' type.
+
+177         const approver = approvers.find(a => {
+                                            ~
+
+approver-area.tsx:179:26 - error TS2709: Cannot use namespace 'ApproverMember' as a type.
+
+179             return (a as ApproverMember).memberId === id
+                             ~~~~~~~~~~~~~~
+
+approver-area.tsx:181:26 - error TS2709: Cannot use namespace 'ApproverTeam' as a type.
+
+181             return (a as ApproverTeam).teamId === id
+                             ~~~~~~~~~~~~
+
+approver-area.tsx:193:12 - error TS7005: Variable 'activePills' implicitly has an 'any[]' type.
+
+193     return activePills
+               ~~~~~~~~~~~
+
+approver-area.tsx:197:16 - error TS2709: Cannot use namespace 'ApproverMember' as a type.
+
+197     (approver: ApproverMember | ApproverTeam) => {
+                   ~~~~~~~~~~~~~~
+
+approver-area.tsx:197:33 - error TS2709: Cannot use namespace 'ApproverTeam' as a type.
+
+197     (approver: ApproverMember | ApproverTeam) => {
+                                    ~~~~~~~~~~~~
+
+approver-area.tsx:201:36 - error TS2709: Cannot use namespace 'ApproverMember' as a type.
+
+201         const member = approver as ApproverMember
+                                       ~~~~~~~~~~~~~~
+
+approver-area.tsx:204:34 - error TS2709: Cannot use namespace 'ApproverTeam' as a type.
+
+204         const team = approver as ApproverTeam
+                                     ~~~~~~~~~~~~
+
+approver-area.tsx:211:72 - error TS7006: Parameter 'approver' implicitly has an 'any' type.
+
+211       const isCurrentUserInSelectedApprovers = selectedApprovers?.some(approver => approver.id === memberId)
+                                                                           ~~~~~~~~
+
+approver-area.tsx:221:9 - error TS7006: Parameter 'error' implicitly has an 'any' type.
+
+221         error => error.code === CUSTOM_ERRORS.FE_NEEDS_APPROVAL_AND_NO_APPROVER_SELECTED,
+            ~~~~~
+
+approver-area.tsx:290:15 - error TS7006: Parameter 'approver' implicitly has an 'any' type.
+
+290       .filter(approver => {
+                  ~~~~~~~~
+
+approver-area.tsx:292:39 - error TS2709: Cannot use namespace 'ApproverMember' as a type.
+
+292           const key = `${(approver as ApproverMember).memberId}-${OneTimeReviewerTypes.MESSAGE_LEVEL}`
+                                          ~~~~~~~~~~~~~~
+
+approver-area.tsx:295:39 - error TS2709: Cannot use namespace 'ApproverTeam' as a type.
+
+295           const key = `${(approver as ApproverTeam).teamId}-${OneTimeReviewerTypes.MESSAGE_LEVEL_TEAM}`
+                                          ~~~~~~~~~~~~
+
+approver-area.tsx:300:12 - error TS7006: Parameter 'approver' implicitly has an 'any' type.
+
+300       .map(approver => {
+               ~~~~~~~~
+
+approver-area.tsx:302:44 - error TS2709: Cannot use namespace 'ApproverMember' as a type.
+
+302           const { memberId } = approver as ApproverMember
+                                               ~~~~~~~~~~~~~~
+
+approver-area.tsx:308:42 - error TS2709: Cannot use namespace 'ApproverTeam' as a type.
+
+308           const { teamId } = approver as ApproverTeam
+                                             ~~~~~~~~~~~~
+
+approver-area.tsx:322:27 - error TS7006: Parameter 'approver' implicitly has an 'any' type.
+
+322     filteredApprovers.map(approver => {
+                              ~~~~~~~~
+
+approver-area.tsx:326:36 - error TS2709: Cannot use namespace 'ApproverMember' as a type.
+
+326         const member = approver as ApproverMember
+                                       ~~~~~~~~~~~~~~
+
+approver-area.tsx:330:34 - error TS2709: Cannot use namespace 'ApproverTeam' as a type.
+
+330         const team = approver as ApproverTeam
+                                     ~~~~~~~~~~~~
+
+approver-area.tsx:340:27 - error TS2339: Property 'title' does not exist on type '{ t: (key: string) => string; }'.
+
+340         <TitleText>{$i18n.title()}</TitleText>
+                              ~~~~~
+
+approver-area.tsx:344:28 - error TS2339: Property 'subtitle' does not exist on type '{ t: (key: string) => string; }'.
+
+344           <Subtitle>{$i18n.subtitle()}</Subtitle>
+                               ~~~~~~~~
+
+approver-area.tsx:349:34 - error TS2339: Property 'placeholder' does not exist on type '{ t: (key: string) => string; }'.
+
+349               placeholder={$i18n.placeholder()}
+                                     ~~~~~~~~~~~
+
+approver-area.tsx:361:43 - error TS2339: Property 'noApprovers' does not exist on type '{ t: (key: string) => string; }'.
+
+361         <Alert type="info" message={$i18n.noApprovers()} />
+                                              ~~~~~~~~~~~
+
+approver-area.tsx:370:33 - error TS7006: Parameter 'state' implicitly has an 'any' type.
+
+370   connect(composerMessageStore, state => ({
+                                    ~~~~~
+
+approver-area.tsx:374:39 - error TS2709: Cannot use namespace 'SocialProfileState' as a type.
+
+374   connect(socialProfileStore, (state: SocialProfileState) => ({
+                                          ~~~~~~~~~~~~~~~~~~
+
+approver-area.tsx:377:38 - error TS2709: Cannot use namespace 'OrganizationState' as a type.
+
+377   connect(OrganizationStore, (state: OrganizationState) => ({
+                                         ~~~~~~~~~~~~~~~~~
+
+CaptionSelection.tsx:10:34 - error TS2709: Cannot use namespace 'CaptionSelectionProps' as a type.
+
+10 const CaptionSelection: React.FC<CaptionSelectionProps> = ({
+                                    ~~~~~~~~~~~~~~~~~~~~~
+
+CaptionSelection.tsx:15:29 - error TS2554: Expected 0 arguments, but got 1.
+
+ 15   const $i18n = useWithI18n({
+                                ~
+ 16     noRecommendationTitle: 'Nice job!',
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+...
+ 18       "Your content is good to go! We don't have any suggestions to improve it right now.",
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 19   })
+    ~~~
+
+CaptionSelection.tsx:27:33 - error TS2339: Property 'noRecommendationTitle' does not exist on type '{ t: (key: string) => string; }'.
+
+27         <NoCaptionsTitle>{$i18n.noRecommendationTitle()}</NoCaptionsTitle>
+                                   ~~~~~~~~~~~~~~~~~~~~~
+
+CaptionSelection.tsx:28:35 - error TS2339: Property 'noRecommendationMessage' does not exist on type '{ t: (key: string) => string; }'.
+
+28         <NoCaptionsMessage>{$i18n.noRecommendationMessage()}</NoCaptionsMessage>
+                                     ~~~~~~~~~~~~~~~~~~~~~~~
+
+CaptionSelection.tsx:35:21 - error TS7006: Parameter 'caption' implicitly has an 'any' type.
+
+35       {captions.map(caption => (
+                       ~~~~~~~
+
+combobox.tsx:101:9 - error TS2709: Cannot use namespace 'ValueMode' as a type.
+
+101   mode: ValueMode
+            ~~~~~~~~~
+
+combobox.tsx:140:43 - error TS7006: Parameter 'state' implicitly has an 'any' type.
+
+140   let optionsElement = useSlice(machine, (state) => state.optionsElement)
+                                              ~~~~~
+
+combobox.tsx:175:55 - error TS7006: Parameter 'state' implicitly has an 'any' type.
+
+175   let isPointerActivationTrigger = useSlice(machine, (state) => {
+                                                          ~~~~~
+
+combobox.tsx:250:5 - error TS2709: Cannot use namespace 'Props' as a type.
+
+250 > = Props<
+        ~~~~~
+
+combobox.tsx:255:38 - error TS2709: Cannot use namespace 'EnsureArray' as a type.
+
+255     value?: TMultiple extends true ? EnsureArray<TValue> : TValue
+                                         ~~~~~~~~~~~
+
+combobox.tsx:256:45 - error TS2709: Cannot use namespace 'EnsureArray' as a type.
+
+256     defaultValue?: TMultiple extends true ? EnsureArray<NoInfer<TValue>> : NoInfer<TValue>
+                                                ~~~~~~~~~~~
+
+combobox.tsx:259:39 - error TS2709: Cannot use namespace 'EnsureArray' as a type.
+
+259       value: TMultiple extends true ? EnsureArray<NoInfer<TValue>> : NoInfer<TValue> | null
+                                          ~~~~~~~~~~~
+
+combobox.tsx:261:10 - error TS2709: Cannot use namespace 'ByComparator' as a type.
+
+261     by?: ByComparator<
+             ~~~~~~~~~~~~
+
+combobox.tsx:262:32 - error TS2709: Cannot use namespace 'EnsureArray' as a type.
+
+262       TMultiple extends true ? EnsureArray<NoInfer<TValue>>[number] : NoInfer<TValue>
+                                   ~~~~~~~~~~~
+
+combobox.tsx:275:41 - error TS2709: Cannot use namespace 'EnsureArray' as a type.
+
+275       options: TMultiple extends true ? EnsureArray<NoInfer<TValue>> : NoInfer<TValue>[]
+                                            ~~~~~~~~~~~
+
+combobox.tsx:277:41 - error TS2709: Cannot use namespace 'EnsureArray' as a type.
+
+277         value: TMultiple extends true ? EnsureArray<NoInfer<TValue>>[number] : NoInfer<TValue>
+                                            ~~~~~~~~~~~
+
+combobox.tsx:312:60 - error TS2347: Untyped function calls may not accept type arguments.
+
+312   let [value = multiple ? [] : undefined, theirOnChange] = useControllable<any>(
+                                                               ~~~~~~~~~~~~~~~~~~~~~
+313     controlledValue,
+    ~~~~~~~~~~~~~~~~~~~~
+...
+315     defaultValue
+    ~~~~~~~~~~~~~~~~
+316   )
+    ~~~
+
+combobox.tsx:322:54 - error TS2709: Cannot use namespace 'EnsureArray' as a type.
+
+322   type TActualValue = true extends typeof multiple ? EnsureArray<TValue>[number] : TValue
+                                                         ~~~~~~~~~~~
+
+combobox.tsx:323:17 - error TS2347: Untyped function calls may not accept type arguments.
+
+323   let compare = useByComparator<TActualValue>(by)
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+combobox.tsx:330:43 - error TS7006: Parameter 'other' implicitly has an 'any' type.
+
+330         return virtual.options.findIndex((other) => compare(other, value))
+                                              ~~~~~
+
+combobox.tsx:333:47 - error TS7006: Parameter 'other' implicitly has an 'any' type.
+
+333       return machine.state.options.findIndex((other) => compare(other.dataRef.current.value, value))
+                                                  ~~~~~
+
+combobox.tsx:341:28 - error TS2709: Cannot use namespace 'EnsureArray' as a type.
+
+341           return (value as EnsureArray<TValue>).some((option) => compare(option, other))
+                               ~~~~~~~~~~~
+
+combobox.tsx:341:55 - error TS7006: Parameter 'option' implicitly has an 'any' type.
+
+341           return (value as EnsureArray<TValue>).some((option) => compare(option, other))
+                                                          ~~~~~~
+
+combobox.tsx:349:41 - error TS7006: Parameter 'state' implicitly has an 'any' type.
+
+349   let virtualSlice = useSlice(machine, (state) => state.virtual)
+                                            ~~~~~
+
+combobox.tsx:397:89 - error TS7006: Parameter 'state' implicitly has an 'any' type.
+
+397   let [comboboxState, buttonElement, inputElement, optionsElement] = useSlice(machine, (state) => [
+                                                                                            ~~~~~
+
+combobox.tsx:501:5 - error TS2709: Cannot use namespace 'Props' as a type.
+
+501 > = Props<
+        ~~~~~
+
+combobox.tsx:536:43 - error TS7006: Parameter 'state' implicitly has an 'any' type.
+
+536   let [inputElement] = useSlice(machine, (state) => [state.inputElement])
+                                              ~~~~~
+
+combobox.tsx:547:54 - error TS7006: Parameter 'state' implicitly has an 'any' type.
+
+547   let [comboboxState, isTyping] = useSlice(machine, (state) => [
+                                                         ~~~~~
+
+combobox.tsx:596:7 - error TS7031: Binding element 'currentDisplayValue' implicitly has an 'any' type.
+
+596     ([currentDisplayValue, state], [oldCurrentDisplayValue, oldState]) => {
+          ~~~~~~~~~~~~~~~~~~~
+
+combobox.tsx:596:28 - error TS7031: Binding element 'state' implicitly has an 'any' type.
+
+596     ([currentDisplayValue, state], [oldCurrentDisplayValue, oldState]) => {
+                               ~~~~~
+
+combobox.tsx:596:37 - error TS7031: Binding element 'oldCurrentDisplayValue' implicitly has an 'any' type.
+
+596     ([currentDisplayValue, state], [oldCurrentDisplayValue, oldState]) => {
+                                        ~~~~~~~~~~~~~~~~~~~~~~
+
+combobox.tsx:596:61 - error TS7031: Binding element 'oldState' implicitly has an 'any' type.
+
+596     ([currentDisplayValue, state], [oldCurrentDisplayValue, oldState]) => {
+                                                                ~~~~~~~~
+
+combobox.tsx:645:7 - error TS7031: Binding element 'newState' implicitly has an 'any' type.
+
+645     ([newState], [oldState]) => {
+          ~~~~~~~~
+
+combobox.tsx:645:19 - error TS7031: Binding element 'oldState' implicitly has an 'any' type.
+
+645     ([newState], [oldState]) => {
+                      ~~~~~~~~
+
+combobox.tsx:816:61 - error TS7006: Parameter 'x' implicitly has an 'any' type.
+
+816       (event.relatedTarget as HTMLElement) ?? history.find((x) => x !== event.currentTarget)
+                                                                ~
+
+combobox.tsx:848:61 - error TS7006: Parameter 'x' implicitly has an 'any' type.
+
+848       (event.relatedTarget as HTMLElement) ?? history.find((x) => x !== event.currentTarget)
+                                                                ~
+
+combobox.tsx:895:43 - error TS7006: Parameter 'state' implicitly has an 'any' type.
+
+895   let optionsElement = useSlice(machine, (state) => state.optionsElement)
+                                              ~~~~~
+
+combobox.tsx:968:89 - error TS2709: Cannot use namespace 'Props' as a type.
+
+968 export type ComboboxButtonProps<TTag extends ElementType = typeof DEFAULT_BUTTON_TAG> = Props<
+                                                                                            ~~~~~
+
+combobox.tsx:995:74 - error TS7006: Parameter 'state' implicitly has an 'any' type.
+
+995   let [comboboxState, inputElement, optionsElement] = useSlice(machine, (state) => [
+                                                                             ~~~~~
+
+combobox.tsx:1006:8 - error TS7006: Parameter 'e' implicitly has an 'any' type.
+
+1006       (e) => {
+            ~
+
+combobox.tsx:1167:91 - error TS2709: Cannot use namespace 'Props' as a type.
+
+1167 export type ComboboxOptionsProps<TTag extends ElementType = typeof DEFAULT_OPTIONS_TAG> = Props<
+                                                                                               ~~~~~
+
+combobox.tsx:1171:3 - error TS2709: Cannot use namespace 'PropsForFeatures' as a type.
+
+1171   PropsForFeatures<typeof OptionsRenderFeatures> & {
+       ~~~~~~~~~~~~~~~~
+
+combobox.tsx:1173:14 - error TS2709: Cannot use namespace 'AnchorProps' as a type.
+
+1173     anchor?: AnchorProps
+                  ~~~~~~~~~~~
+
+combobox.tsx:1220:6 - error TS7006: Parameter 'state' implicitly has an 'any' type.
+
+1220     (state) => [
+          ~~~~~
+
+combobox.tsx:1265:12 - error TS7006: Parameter 'node' implicitly has an 'any' type.
+
+1265     accept(node) {
+                ~~~~
+
+combobox.tsx:1270:10 - error TS7006: Parameter 'node' implicitly has an 'any' type.
+
+1270     walk(node) {
+              ~~~~
+
+combobox.tsx:1334:30 - error TS7006: Parameter 'compareValue' implicitly has an 'any' type.
+
+1334   let isSelected = useEvent((compareValue) => data.compare(frozenValue, compareValue))
+                                  ~~~~~~~~~~~~
+
+combobox.tsx:1350:12 - error TS2578: Unused '@ts-expect-error' directive.
+
+1350           {/* @ts-expect-error The `children` prop now is a callback function that receives `{option}` */}
+                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+combobox.tsx:1404:5 - error TS2709: Cannot use namespace 'Props' as a type.
+
+1404 > = Props<
+         ~~~~~
+
+combobox.tsx:1433:43 - error TS7006: Parameter 'state' implicitly has an 'any' type.
+
+1433   let [inputElement] = useSlice(machine, (state) => [state.inputElement])
+                                               ~~~~~
+
+combobox.tsx:1439:18 - error TS7006: Parameter 'state' implicitly has an 'any' type.
+
+1439     useCallback((state) => machine.selectors.isActive(state, value, id), [value, id])
+                      ~~~~~
+
+combobox.tsx:1444:13 - error TS2347: Untyped function calls may not accept type arguments.
+
+1444   let bag = useLatestValue<ComboboxOptionDataRef<TType>['current']>({
+                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+1445     disabled,
+     ~~~~~~~~~~~~~
+ ...
+1448     order,
+     ~~~~~~~~~~
+1449   })
+     ~~~~
+
+combobox.tsx:1444:28 - error TS2709: Cannot use namespace 'ComboboxOptionDataRef' as a type.
+
+1444   let bag = useLatestValue<ComboboxOptionDataRef<TType>['current']>({
+                                ~~~~~~~~~~~~~~~~~~~~~
+
+combobox.tsx:1466:18 - error TS7006: Parameter 'state' implicitly has an 'any' type.
+
+1466     useCallback((state) => machine.selectors.shouldScrollIntoView(state, value, id), [value, id])
+                      ~~~~~
+
+combobox.tsx:1524:31 - error TS7006: Parameter 'evt' implicitly has an 'any' type.
+
+1524   let handleEnter = useEvent((evt) => pointer.update(evt))
+                                   ~~~
+
+combobox.tsx:1526:30 - error TS7006: Parameter 'evt' implicitly has an 'any' type.
+
+1526   let handleMove = useEvent((evt) => {
+                                  ~~~
+
+combobox.tsx:1534:31 - error TS7006: Parameter 'evt' implicitly has an 'any' type.
+
+1534   let handleLeave = useEvent((evt) => {
+                                   ~~~
+
+combobox.tsx:1585:54 - error TS2709: Cannot use namespace 'HasDisplayName' as a type.
+
+1585 export interface _internal_ComponentCombobox extends HasDisplayName {
+                                                          ~~~~~~~~~~~~~~
+
+combobox.tsx:1591:53 - error TS2709: Cannot use namespace 'RefProp' as a type.
+
+1591     props: ComboboxProps<TValue, TMultiple, TTag> & RefProp<typeof ComboboxFn>
+                                                         ~~~~~~~
+
+combobox.tsx:1595:60 - error TS2709: Cannot use namespace 'HasDisplayName' as a type.
+
+1595 export interface _internal_ComponentComboboxButton extends HasDisplayName {
+                                                                ~~~~~~~~~~~~~~
+
+combobox.tsx:1597:40 - error TS2709: Cannot use namespace 'RefProp' as a type.
+
+1597     props: ComboboxButtonProps<TTag> & RefProp<typeof ButtonFn>
+                                            ~~~~~~~
+
+combobox.tsx:1601:59 - error TS2709: Cannot use namespace 'HasDisplayName' as a type.
+
+1601 export interface _internal_ComponentComboboxInput extends HasDisplayName {
+                                                               ~~~~~~~~~~~~~~
+
+combobox.tsx:1603:46 - error TS2709: Cannot use namespace 'RefProp' as a type.
+
+1603     props: ComboboxInputProps<TTag, TType> & RefProp<typeof InputFn>
+                                                  ~~~~~~~
+
+combobox.tsx:1607:59 - error TS2709: Cannot use namespace '_internal_ComponentLabel' as a type.
+
+1607 export interface _internal_ComponentComboboxLabel extends _internal_ComponentLabel {}
+                                                               ~~~~~~~~~~~~~~~~~~~~~~~~
+
+combobox.tsx:1609:61 - error TS2709: Cannot use namespace 'HasDisplayName' as a type.
+
+1609 export interface _internal_ComponentComboboxOptions extends HasDisplayName {
+                                                                 ~~~~~~~~~~~~~~
+
+combobox.tsx:1611:41 - error TS2709: Cannot use namespace 'RefProp' as a type.
+
+1611     props: ComboboxOptionsProps<TTag> & RefProp<typeof OptionsFn>
+                                             ~~~~~~~
+
+combobox.tsx:1615:60 - error TS2709: Cannot use namespace 'HasDisplayName' as a type.
+
+1615 export interface _internal_ComponentComboboxOption extends HasDisplayName {
+                                                                ~~~~~~~~~~~~~~
+
+combobox.tsx:1620:47 - error TS2709: Cannot use namespace 'RefProp' as a type.
+
+1620     props: ComboboxOptionProps<TTag, TType> & RefProp<typeof OptionFn>
+                                                   ~~~~~~~
+
+Content.tsx:14:32 - error TS2709: Cannot use namespace 'AIPanelContentProps' as a type.
+
+14 export const Content: React.FC<AIPanelContentProps> = ({
+                                  ~~~~~~~~~~~~~~~~~~~
+
+Content.tsx:25:29 - error TS2554: Expected 0 arguments, but got 1.
+
+ 25   const $i18n = useWithI18n({
+                                ~
+ 26     loading: 'Preparing some suggestions. Just a moment.',
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+...
+ 29     noResults: "Your content is good to go. We don't have any suggestions to improve it right now.",
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 30   })
+    ~~~
+
+Content.tsx:61:20 - error TS2339: Property 'loading' does not exist on type '{ t: (key: string) => string; }'.
+
+61       return $i18n.loading()
+                      ~~~~~~~
+
+Content.tsx:66:22 - error TS2339: Property 'noResults' does not exist on type '{ t: (key: string) => string; }'.
+
+66         return $i18n.noResults()
+                        ~~~~~~~~~
+
+Content.tsx:68:22 - error TS2339: Property 'recommendationsLoadedSingle' does not exist on type '{ t: (key: string) => string; }'.
+
+68         return $i18n.recommendationsLoadedSingle()
+                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Content.tsx:70:22 - error TS2339: Property 'recommendationsLoaded' does not exist on type '{ t: (key: string) => string; }'.
+
+70         return $i18n.recommendationsLoaded({
+                        ~~~~~~~~~~~~~~~~~~~~~
+
+contstants.ts:2:15 - error TS2305: Module '"fe-lib-i18n"' has no exported member 'I18nObject'.
+
+2 import type { I18nObject } from 'fe-lib-i18n'
+                ~~~~~~~~~~
+
+contstants.ts:24:22 - error TS2558: Expected 0 type arguments, but got 1.
+
+24   return useWithI18n<I18nObject<AIFeatures>>({
+                        ~~~~~~~~~~~~~~~~~~~~~~
+
+FeatureSelection.tsx:14:34 - error TS2709: Cannot use namespace 'FeatureSelectionProps' as a type.
+
+14 const FeatureSelection: React.FC<FeatureSelectionProps> = ({ onSelectFeature, onSelectToneFeature }) => {
+                                    ~~~~~~~~~~~~~~~~~~~~~
+
+FeatureSelection.tsx:15:29 - error TS2554: Expected 0 arguments, but got 1.
+
+ 15   const $i18n = useWithI18n({
+                                ~
+ 16     [`${AI_FEATURES.GRAMMAR_CORRECTION}_desc`]: 'Ensure your writing is clear and error-free',
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+...
+ 19     [`${AI_FEATURES.LENGTH}_desc`]: 'Use the right caption length to engage your audience',
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 20   })
+    ~~~
+
+FeatureSelection.tsx:43:39 - error TS2345: Argument of type '(feature: string) => JSX.Element' is not assignable to parameter of type '(value: unknown, index: number, array: unknown[]) => Element'.
+  Types of parameters 'feature' and 'value' are incompatible.
+    Type 'unknown' is not assignable to type 'string'.
+
+ 43       {Object.values(AI_FEATURES).map((feature: string) => (
+                                          ~~~~~~~~~~~~~~~~~~~~~~
+ 44         <Feature
+    ~~~~~~~~~~~~~~~~
+...
+ 50         />
+    ~~~~~~~~~~
+ 51       ))}
+    ~~~~~~~
+
+FeatureSelection.tsx:47:24 - error TS7053: Element implicitly has an 'any' type because expression of type '`${string}_desc`' can't be used to index type '{ t: (key: string) => string; }'.
+
+47           description={$i18n[`${feature}_desc`]()}
+                          ~~~~~~~~~~~~~~~~~~~~~~~~
+
+message-edit-area.tsx:178:20 - error TS2709: Cannot use namespace 'Campaign' as a type.
+
+178   campaigns: Array<Campaign>
+                       ~~~~~~~~
+
+message-edit-area.tsx:182:13 - error TS2709: Cannot use namespace 'AppDispatch' as a type.
+
+182   dispatch: AppDispatch
+                ~~~~~~~~~~~
+
+message-edit-area.tsx:184:32 - error TS2709: Cannot use namespace 'SocialNetworkType' as a type.
+
+184   excludedNetworkTypes?: Array<SocialNetworkType>
+                                   ~~~~~~~~~~~~~~~~~
+
+message-edit-area.tsx:187:9 - error TS2709: Cannot use namespace 'Flux' as a type.
+
+187   flux: Flux
+            ~~~~
+
+message-edit-area.tsx:203:20 - error TS2709: Cannot use namespace 'Message' as a type.
+
+203   messages?: Array<Message>
+                       ~~~~~~~
+
+message-edit-area.tsx:204:10 - error TS2709: Cannot use namespace 'EditMode' as a type.
+
+204   mode?: EditMode
+             ~~~~~~~~
+
+message-edit-area.tsx:205:35 - error TS2709: Cannot use namespace 'AttachmentData' as a type.
+
+205   onAddAttachment(attachmentData: AttachmentData, isUploadRequired?: boolean, currentSource?: string): void
+                                      ~~~~~~~~~~~~~~
+
+message-edit-area.tsx:211:18 - error TS2709: Cannot use namespace 'Mentions' as a type.
+
+211     newMentions: Mentions,
+                     ~~~~~~~~
+
+message-edit-area.tsx:213:28 - error TS2709: Cannot use namespace 'SocialNetworkGroup' as a type.
+
+213     selectedNetworkGroup?: SocialNetworkGroup | null,
+                               ~~~~~~~~~~~~~~~~~~
+
+message-edit-area.tsx:226:35 - error TS2709: Cannot use namespace 'ErrorType' as a type.
+
+226   onTrackMediaUploadError?(error: ErrorType, mediaAttachment?: AttachmentObject | null): void
+                                      ~~~~~~~~~
+
+message-edit-area.tsx:226:64 - error TS2709: Cannot use namespace 'AttachmentObject' as a type.
+
+226   onTrackMediaUploadError?(error: ErrorType, mediaAttachment?: AttachmentObject | null): void
+                                                                   ~~~~~~~~~~~~~~~~
+
+message-edit-area.tsx:228:25 - error TS2709: Cannot use namespace 'Organization' as a type.
+
+228   organizations?: Array<Organization>
+                            ~~~~~~~~~~~~
+
+message-edit-area.tsx:229:18 - error TS2709: Cannot use namespace 'Preset' as a type.
+
+229   presets: Array<Preset>
+                     ~~~~~~
+
+message-edit-area.tsx:230:27 - error TS2709: Cannot use namespace 'Message' as a type.
+
+230   selectedMessageForEdit: Message
+                              ~~~~~~~
+
+message-edit-area.tsx:231:26 - error TS2709: Cannot use namespace 'SocialNetworkGroup' as a type.
+
+231   selectedNetworkGroup?: SocialNetworkGroup
+                             ~~~~~~~~~~~~~~~~~~
+
+message-edit-area.tsx:232:25 - error TS2709: Cannot use namespace 'Organization' as a type.
+
+232   selectedOrganization: Organization
+                            ~~~~~~~~~~~~
+
+message-edit-area.tsx:237:25 - error TS2709: Cannot use namespace 'SocialNetwork' as a type.
+
+237   socialNetworks: Array<SocialNetwork>
+                            ~~~~~~~~~~~~~
+
+message-edit-area.tsx:238:24 - error TS2709: Cannot use namespace 'Tag' as a type.
+
+238   suggestedTags: Array<Tag>
+                           ~~~
+
+message-edit-area.tsx:239:15 - error TS2709: Cannot use namespace 'Tag' as a type.
+
+239   tags: Array<Tag>
+                  ~~~
+
+message-edit-area.tsx:241:20 - error TS2709: Cannot use namespace 'TrackingContext' as a type.
+
+241   trackingContext: TrackingContext
+                       ~~~~~~~~~~~~~~~
+
+message-edit-area.tsx:243:33 - error TS2709: Cannot use namespace 'ErrorType' as a type.
+
+243   instagramPairingErrors: Array<ErrorType>
+                                    ~~~~~~~~~
+
+message-edit-area.tsx:314:29 - error TS2554: Expected 0 arguments, but got 1.
+
+314   const $i18n = useWithI18n({
+                                ~
+315     MESSAGES_READY_FOR_REVIEW: 'Your posts are ready to review!',
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+...
+348     cancelButton: 'Cancel',
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+349   })
+    ~~~
+
+message-edit-area.tsx:362:7 - error TS7034: Variable 'scrollContainer' implicitly has type 'any' in some locations where its type cannot be determined.
+
+362   let scrollContainer = null
+          ~~~~~~~~~~~~~~~
+
+message-edit-area.tsx:376:64 - error TS2709: Cannot use namespace 'SanitizedMessage' as a type.
+
+376   const [previewMessages, setPreviewMessages] = useState<Array<SanitizedMessage>>([])
+                                                                   ~~~~~~~~~~~~~~~~
+
+message-edit-area.tsx:377:60 - error TS2709: Cannot use namespace 'FieldValidations' as a type.
+
+377   const [fieldValidations, setFieldValidations] = useState<FieldValidations>({})
+                                                               ~~~~~~~~~~~~~~~~
+
+message-edit-area.tsx:378:52 - error TS2709: Cannot use namespace 'LinkSettings' as a type.
+
+378   const [linkSettings, setLinkSettings] = useState<LinkSettings | null>([])
+                                                       ~~~~~~~~~~~~
+
+message-edit-area.tsx:386:74 - error TS2709: Cannot use namespace 'SocialNetworksKeyedById' as a type.
+
+386   const [socialNetworksKeyedById, setSocialNetworksKeyedById] = useState<SocialNetworksKeyedById>(
+                                                                             ~~~~~~~~~~~~~~~~~~~~~~~
+
+message-edit-area.tsx:404:74 - error TS2709: Cannot use namespace 'SocialNetworkType' as a type.
+
+404   const [selectedNetworkTypes, setSelectedNetworkTypes] = useState<Array<SocialNetworkType>>([])
+                                                                             ~~~~~~~~~~~~~~~~~
+
+message-edit-area.tsx:405:56 - error TS2709: Cannot use namespace 'Tag' as a type.
+
+405   const [appliedTags, setAppliedTags] = useState<Array<Tag>>(selectedMessageForEditInConstructor?.tags || [])
+                                                           ~~~
+
+message-edit-area.tsx:418:11 - error TS2709: Cannot use namespace 'SocialNetworkType' as a type.
+
+418     Array<SocialNetworkType>
+              ~~~~~~~~~~~~~~~~~
+
+message-edit-area.tsx:420:54 - error TS2709: Cannot use namespace 'AdPromotionCreateBoostCampaignRequest' as a type.
+
+420   const [boostCampaign, setBoostCampaign] = useState<AdPromotionCreateBoostCampaignRequest | null>(null)
+                                                         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+message-edit-area.tsx:423:40 - error TS2345: Argument of type 'undefined' is not assignable to parameter of type 'CampaignObjectiveChanged | (() => CampaignObjectiveChanged)'.
+
+423     useState<CampaignObjectiveChanged>(undefined)
+                                           ~~~~~~~~~
+
+message-edit-area.tsx:437:69 - error TS2345: Argument of type 'null' is not assignable to parameter of type 'boolean | (() => boolean)'.
+
+437   const [isOnboardingOpen, setIsOnboardingOpen] = useState<boolean>(null)
+                                                                        ~~~~
+
+message-edit-area.tsx:438:76 - error TS2345: Argument of type 'null' is not assignable to parameter of type 'number | (() => number)'.
+
+438   const [selectedMessageCount, setSelectedMessageCount] = useState<number>(null)
+                                                                               ~~~~
+
+message-edit-area.tsx:439:79 - error TS2345: Argument of type 'null' is not assignable to parameter of type 'string | number | (() => string | number)'.
+
+439   const [selectedMessageId, setSelectedMessageId] = useState<string | number>(null)
+                                                                                  ~~~~
+
+message-edit-area.tsx:462:36 - error TS2554: Expected 1 arguments, but got 2.
+
+462     onClickHashtagButton(editorId, false)
+                                       ~~~~~
+
+message-edit-area.tsx:465:42 - error TS7006: Parameter 'entitlements' implicitly has an 'any' type.
+
+465   const hasVideoTranscodingEntitlement = entitlements => {
+                                             ~~~~~~~~~~~~
+
+message-edit-area.tsx:475:35 - error TS7006: Parameter 'message' implicitly has an 'any' type.
+
+475       errors = _.filter(messages, message => message.hasErrors())
+                                      ~~~~~~~
+
+message-edit-area.tsx:483:27 - error TS2339: Property 'center' does not exist on type 'never'.
+
+483       zenScroller.current.center(ReactDOM.findDOMNode(tagAreaNode.current), 150)
+                              ~~~~~~
+
+message-edit-area.tsx:487:25 - error TS7006: Parameter 'node' implicitly has an 'any' type.
+
+487   const scrollToField = node => {
+                            ~~~~
+
+message-edit-area.tsx:489:27 - error TS2339: Property 'center' does not exist on type 'never'.
+
+489       zenScroller.current.center(ReactDOM.findDOMNode(node), 150)
+                              ~~~~~~
+
+message-edit-area.tsx:493:30 - error TS7006: Parameter 'showOnSubmitErrors' implicitly has an 'any' type.
+
+493   const scrollToFirstError = showOnSubmitErrors => {
+                                 ~~~~~~~~~~~~~~~~~~
+
+message-edit-area.tsx:520:25 - error TS2304: Cannot find name 'twitterLocationAreaNode'.
+
+520           scrollToField(twitterLocationAreaNode.current)
+                            ~~~~~~~~~~~~~~~~~~~~~~~
+
+message-edit-area.tsx:559:23 - error TS2709: Cannot use namespace 'LinkSetting' as a type.
+
+559         (linkSetting: LinkSetting) =>
+                          ~~~~~~~~~~~
+
+message-edit-area.tsx:631:19 - error TS7006: Parameter 'data' implicitly has an 'any' type.
+
+631             .then(data => {
+                      ~~~~
+
+message-edit-area.tsx:727:42 - error TS2339: Property 'MESSAGES_READY_FOR_REVIEW' does not exist on type '{ t: (key: string) => string; }'.
+
+727           <MessageEditStatesTitle>{$i18n.MESSAGES_READY_FOR_REVIEW()}</MessageEditStatesTitle>
+                                             ~~~~~~~~~~~~~~~~~~~~~~~~~
+
+message-edit-area.tsx:729:20 - error TS2339: Property 'MESSAGES_CONTAIN_ERRORS' does not exist on type '{ t: (key: string) => string; }'.
+
+729             {$i18n.MESSAGES_CONTAIN_ERRORS({ numErrors: getNumOfErrors().toString() })}
+                       ~~~~~~~~~~~~~~~~~~~~~~~
+
+message-edit-area.tsx:744:42 - error TS2339: Property 'MESSAGES_READY' does not exist on type '{ t: (key: string) => string; }'.
+
+744           <MessageEditStatesTitle>{$i18n.MESSAGES_READY()}</MessageEditStatesTitle>
+                                             ~~~~~~~~~~~~~~
+
+message-edit-area.tsx:746:20 - error TS2339: Property 'SCHEDULE_ALL_MESSAGES' does not exist on type '{ t: (key: string) => string; }'.
+
+746             {$i18n.SCHEDULE_ALL_MESSAGES()}
+                       ~~~~~~~~~~~~~~~~~~~~~
+
+message-edit-area.tsx:748:41 - error TS2339: Property 'SELECT_MESSAGE' does not exist on type '{ t: (key: string) => string; }'.
+
+748           <MessageEditStatesText>{$i18n.SELECT_MESSAGE()}</MessageEditStatesText>
+                                            ~~~~~~~~~~~~~~
+
+message-edit-area.tsx:762:32 - error TS7006: Parameter 'obj' implicitly has an 'any' type.
+
+762   const onChangeExtendedInfo = obj => {
+                                   ~~~
+
+message-edit-area.tsx:772:19 - error TS2709: Cannot use namespace 'LinkSettings' as a type.
+
+772     linkSettings: LinkSettings,
+                      ~~~~~~~~~~~~
+
+message-edit-area.tsx:774:19 - error TS2709: Cannot use namespace 'Preset' as a type.
+
+774     localPreset?: Preset | undefined,
+                      ~~~~~~
+
+message-edit-area.tsx:796:32 - error TS7006: Parameter 'updatedLinkSetting' implicitly has an 'any' type.
+
+796           linkSettings.forEach(updatedLinkSetting => (updatedLinkSetting.id = uuid()))
+                                   ~~~~~~~~~~~~~~~~~~
+
+message-edit-area.tsx:824:24 - error TS2345: Argument of type 'string | null' is not assignable to parameter of type 'string'.
+  Type 'null' is not assignable to type 'string'.
+
+824         if (JSON.parse(localStorage.getItem(Constants.LINK_PRESET_LOCAL_STORAGE))) {
+                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+message-edit-area.tsx:825:50 - error TS2345: Argument of type 'string | null' is not assignable to parameter of type 'string'.
+  Type 'null' is not assignable to type 'string'.
+
+825           const currentLocalPresets = JSON.parse(localStorage.getItem(Constants.LINK_PRESET_LOCAL_STORAGE))
+                                                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+message-edit-area.tsx:853:33 - error TS2339: Property 'LINK_SETTINGS_SUCCESS' does not exist on type '{ t: (key: string) => string; }'.
+
+853       statusObject.update($i18n.LINK_SETTINGS_SUCCESS(), 'success', true)
+                                    ~~~~~~~~~~~~~~~~~~~~~
+
+message-edit-area.tsx:857:47 - error TS2709: Cannot use namespace 'URLPreview' as a type.
+
+857   const onLinkScrapeCancel = (prevUrlPreview: URLPreview) => {
+                                                  ~~~~~~~~~~
+
+message-edit-area.tsx:866:44 - error TS7006: Parameter 'id' implicitly has an 'any' type.
+
+866   const getSocialProfileUsernameByIdFunc = id => getSelectedMessageForEdit()?.getSocialProfileUsernameById(id)
+                                               ~~
+
+message-edit-area.tsx:874:44 - error TS7006: Parameter 'field' implicitly has an 'any' type.
+
+874   const getFirstErrorMessageForFieldFunc = field =>
+                                               ~~~~~
+
+message-edit-area.tsx:876:44 - error TS7019: Rest parameter 'type' implicitly has an 'any[]' type.
+
+876   const isSocialProfileTypeSelectedFunc = (...type) =>
+                                               ~~~~~~~
+
+message-edit-area.tsx:888:48 - error TS2339: Property 'INSTAGRAM_REEL_INFO_BANNER_TEXT' does not exist on type '{ t: (key: string) => string; }'.
+
+888       return <Alert type="info" message={$i18n.INSTAGRAM_REEL_INFO_BANNER_TEXT()} />
+                                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+message-edit-area.tsx:909:52 - error TS2709: Cannot use namespace 'URLPreview' as a type.
+
+909   const handlePreviewCustomize = (nextLinkPreview: URLPreview) => {
+                                                       ~~~~~~~~~~
+
+message-edit-area.tsx:931:14 - error TS7006: Parameter 'node' implicitly has an 'any' type.
+
+931         ref={node => (attachmentAreaNode.current = node)}
+                 ~~~~
+
+message-edit-area.tsx:982:27 - error TS7006: Parameter 'tags' implicitly has an 'any' type.
+
+982   const onDoneApplyTags = tags => {
+                              ~~~~
+
+message-edit-area.tsx:987:37 - error TS7006: Parameter 'publisherNotes' implicitly has an 'any' type.
+
+987   const onDoneApplyPublisherNotes = publisherNotes => {
+                                        ~~~~~~~~~~~~~~
+
+message-edit-area.tsx:1039:34 - error TS7006: Parameter 'linkedInTargeting' implicitly has an 'any' type.
+
+1039   const onSetLinkedInTargeting = linkedInTargeting => {
+                                      ~~~~~~~~~~~~~~~~~
+
+message-edit-area.tsx:1054:34 - error TS7006: Parameter 'facebookTargeting' implicitly has an 'any' type.
+
+1054   const onSetFacebookTargeting = facebookTargeting => {
+                                      ~~~~~~~~~~~~~~~~~
+
+message-edit-area.tsx:1082:28 - error TS2339: Property 'PINTEREST_EXTENDED_INFO_PLACEHOLDER' does not exist on type '{ t: (key: string) => string; }'.
+
+1082         placeHolder={$i18n.PINTEREST_EXTENDED_INFO_PLACEHOLDER()}
+                                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+message-edit-area.tsx:1083:21 - error TS2339: Property 'PINTEREST_EXTENDED_INFO_TEXT' does not exist on type '{ t: (key: string) => string; }'.
+
+1083         text={$i18n.PINTEREST_EXTENDED_INFO_TEXT()}
+                         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+message-edit-area.tsx:1119:21 - error TS2709: Cannot use namespace 'Tag' as a type.
+
+1119         const data: Tag[] = await getTagsByOrganizationId(organizationId, searchQuery)
+                         ~~~
+
+message-edit-area.tsx:1124:35 - error TS2339: Property 'UNABLE_RETRIEVE_TAGS' does not exist on type '{ t: (key: string) => string; }'.
+
+1124         statusObject.update($i18n.UNABLE_RETRIEVE_TAGS(), 'error', true)
+                                       ~~~~~~~~~~~~~~~~~~~~
+
+message-edit-area.tsx:1135:27 - error TS2709: Cannot use namespace 'Tag' as a type.
+
+1135         const tagCreated: Tag = await createTagRequest(organizationId, tagText)
+                               ~~~
+
+message-edit-area.tsx:1142:37 - error TS2339: Property 'UNABLE_CREATE_TAGS_DUPLICATE' does not exist on type '{ t: (key: string) => string; }'.
+
+1142           statusObject.update($i18n.UNABLE_CREATE_TAGS_DUPLICATE(), 'error', true)
+                                         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+message-edit-area.tsx:1144:37 - error TS2339: Property 'UNABLE_CREATE_TAGS' does not exist on type '{ t: (key: string) => string; }'.
+
+1144           statusObject.update($i18n.UNABLE_CREATE_TAGS(), 'error', true)
+                                         ~~~~~~~~~~~~~~~~~~
+
+message-edit-area.tsx:1161:26 - error TS2454: Variable 'canManageTags' is used before being assigned.
+
+1161           canManageTags={canManageTags}
+                              ~~~~~~~~~~~~~
+
+message-edit-area.tsx:1166:27 - error TS2454: Variable 'organizationId' is used before being assigned.
+
+1166           organizationId={organizationId}
+                               ~~~~~~~~~~~~~~
+
+message-edit-area.tsx:1167:16 - error TS7006: Parameter 'node' implicitly has an 'any' type.
+
+1167           ref={node => (tagAreaNode.current = node)}
+                    ~~~~
+
+message-edit-area.tsx:1173:45 - error TS2339: Property 'TAGS' does not exist on type '{ t: (key: string) => string; }'.
+
+1173           TitleComponent={<TitleText>{$i18n.TAGS()}</TitleText>}
+                                                 ~~~~
+
+message-edit-area.tsx:1225:37 - error TS7006: Parameter 'id' implicitly has an 'any' type.
+
+1225     const onProfileSelected = async id => {
+                                         ~~
+
+message-edit-area.tsx:1246:38 - error TS7006: Parameter 'sn' implicitly has an 'any' type.
+
+1246               _.find(socialNetworks, sn =>
+                                          ~~
+
+message-edit-area.tsx:1284:38 - error TS7006: Parameter 'sn' implicitly has an 'any' type.
+
+1284               _.find(socialNetworks, sn => sn.socialNetworkId === i),
+                                          ~~
+
+message-edit-area.tsx:1352:36 - error TS7006: Parameter 'obj' implicitly has an 'any' type.
+
+1352     const onChangeBoardsSelected = obj => {
+                                        ~~~
+
+message-edit-area.tsx:1363:63 - error TS7006: Parameter 'board' implicitly has an 'any' type.
+
+1363         const newSocialNetworksIdStrs = _.uniq(obj.boards.map(board => board.socialNetworkId.toString()))
+                                                                   ~~~~~
+
+message-edit-area.tsx:1374:40 - error TS7006: Parameter 'idStr' implicitly has an 'any' type.
+
+1374         _.each(socialNetworksIdsToAdd, idStr => {
+                                            ~~~~~
+
+message-edit-area.tsx:1379:36 - error TS7006: Parameter 'sn' implicitly has an 'any' type.
+
+1379             _.find(socialNetworks, sn => sn.socialNetworkId === parseInt(idStr, 10)),
+                                        ~~
+
+message-edit-area.tsx:1383:43 - error TS7006: Parameter 'idStr' implicitly has an 'any' type.
+
+1383         _.each(socialNetworksIdsToDelete, idStr => {
+                                               ~~~~~
+
+message-edit-area.tsx:1419:33 - error TS7006: Parameter 'socialProfileType' implicitly has an 'any' type.
+
+1419     const onReconnectCallback = socialProfileType => {
+                                     ~~~~~~~~~~~~~~~~~
+
+message-edit-area.tsx:1462:9 - error TS7034: Variable 'timeout' implicitly has type 'any' in some locations where its type cannot be determined.
+
+1462     let timeout = null
+             ~~~~~~~
+
+message-edit-area.tsx:1469:28 - error TS7006: Parameter 'id' implicitly has an 'any' type.
+
+1469         onProfileSelected={id => {
+                                ~~
+
+message-edit-area.tsx:1471:13 - error TS7053: Element implicitly has an 'any' type because expression of type 'any' can't be used to index type '{}'.
+
+1471             trackClicksPerSNId[id] = trackClicksPerSNId[id] ? trackClicksPerSNId[id] + 1 : 1
+                 ~~~~~~~~~~~~~~~~~~~~~~
+
+message-edit-area.tsx:1471:38 - error TS7053: Element implicitly has an 'any' type because expression of type 'any' can't be used to index type '{}'.
+
+1471             trackClicksPerSNId[id] = trackClicksPerSNId[id] ? trackClicksPerSNId[id] + 1 : 1
+                                          ~~~~~~~~~~~~~~~~~~~~~~
+
+message-edit-area.tsx:1471:63 - error TS7053: Element implicitly has an 'any' type because expression of type 'any' can't be used to index type '{}'.
+
+1471             trackClicksPerSNId[id] = trackClicksPerSNId[id] ? trackClicksPerSNId[id] + 1 : 1
+                                                                   ~~~~~~~~~~~~~~~~~~~~~~
+
+message-edit-area.tsx:1472:17 - error TS7005: Variable 'timeout' implicitly has an 'any' type.
+
+1472             if (timeout) {
+                     ~~~~~~~
+
+message-edit-area.tsx:1478:21 - error TS18046: 'value' is of type 'unknown'.
+
+1478                 if (value % 2 !== 0) {
+                         ~~~~~
+
+message-edit-area.tsx:1503:14 - error TS7006: Parameter 'node' implicitly has an 'any' type.
+
+1503         ref={node => (profileSelectorNode.current = node)}
+                  ~~~~
+
+message-edit-area.tsx:1526:30 - error TS7006: Parameter 'socialProfiles' implicitly has an 'any' type.
+
+1526   const getSPIdsByNetwork = (socialProfiles, networkTypes) => {
+                                  ~~~~~~~~~~~~~~
+
+message-edit-area.tsx:1526:46 - error TS7006: Parameter 'networkTypes' implicitly has an 'any' type.
+
+1526   const getSPIdsByNetwork = (socialProfiles, networkTypes) => {
+                                                  ~~~~~~~~~~~~
+
+message-edit-area.tsx:1527:34 - error TS7006: Parameter 'sn' implicitly has an 'any' type.
+
+1527     return socialProfiles.filter(sn => networkTypes.includes(sn?.type)).map(sn => sn.socialProfileId)
+                                      ~~
+
+message-edit-area.tsx:1527:77 - error TS7006: Parameter 'sn' implicitly has an 'any' type.
+
+1527     return socialProfiles.filter(sn => networkTypes.includes(sn?.type)).map(sn => sn.socialProfileId)
+                                                                                 ~~
+
+message-edit-area.tsx:1624:33 - error TS7006: Parameter 'campaignData' implicitly has an 'any' type.
+
+1624   const onChangeBoostCampaign = campaignData => {
+                                     ~~~~~~~~~~~~
+
+message-edit-area.tsx:1647:49 - error TS7031: Binding element 'newCampaignId' implicitly has an 'any' type.
+
+1647     const handleCampaignSelect = ({ currentKey: newCampaignId }) => {
+                                                     ~~~~~~~~~~~~~
+
+message-edit-area.tsx:1665:28 - error TS2339: Property 'newCampaign' does not exist on type '{ t: (key: string) => string; }'.
+
+1665           titleText: $i18n.newCampaign(),
+                                ~~~~~~~~~~~
+
+message-edit-area.tsx:1666:31 - error TS2339: Property 'newCampaignInfo' does not exist on type '{ t: (key: string) => string; }'.
+
+1666           bodyText: <p>{$i18n.newCampaignInfo()}</p>,
+                                   ~~~~~~~~~~~~~~~
+
+message-edit-area.tsx:1667:35 - error TS2339: Property 'continueButton' does not exist on type '{ t: (key: string) => string; }'.
+
+1667           submitButtonText: $i18n.continueButton(),
+                                       ~~~~~~~~~~~~~~
+
+message-edit-area.tsx:1668:35 - error TS2339: Property 'cancelButton' does not exist on type '{ t: (key: string) => string; }'.
+
+1668           cancelButtonText: $i18n.cancelButton(),
+                                       ~~~~~~~~~~~~
+
+message-edit-area.tsx:1698:55 - error TS7031: Binding element 'snType' implicitly has an 'any' type.
+
+1698       getSelectedMessageForEdit()?.messages.filter(({ snType }) =>
+                                                           ~~~~~~
+
+message-edit-area.tsx:1705:55 - error TS7031: Binding element 'snType' implicitly has an 'any' type.
+
+1705       getSelectedMessageForEdit()?.messages.filter(({ snType }) =>
+                                                           ~~~~~~
+
+message-edit-area.tsx:1710:55 - error TS7031: Binding element 'snType' implicitly has an 'any' type.
+
+1710       getSelectedMessageForEdit()?.messages.filter(({ snType }) =>
+                                                           ~~~~~~
+
+message-edit-area.tsx:1740:20 - error TS2339: Property 'IG_STORY_CLIPBOARD_TEXT_PLACEHOLDER' does not exist on type '{ t: (key: string) => string; }'.
+
+1740       return $i18n.IG_STORY_CLIPBOARD_TEXT_PLACEHOLDER()
+                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+message-edit-area.tsx:1743:20 - error TS2339: Property 'PINTEREST_PLACEHOLDER' does not exist on type '{ t: (key: string) => string; }'.
+
+1743       return $i18n.PINTEREST_PLACEHOLDER()
+                        ~~~~~~~~~~~~~~~~~~~~~
+
+message-edit-area.tsx:1747:15 - error TS2339: Property 'ENTER_TEXT_AND_LINKS' does not exist on type '{ t: (key: string) => string; }'.
+
+1747       : $i18n.ENTER_TEXT_AND_LINKS()
+                   ~~~~~~~~~~~~~~~~~~~~
+
+message-edit-area.tsx:1784:35 - error TS2345: Argument of type 'null' is not assignable to parameter of type 'SetStateAction<CampaignObjectiveChanged>'.
+
+1784       setCampaignObjectiveChanged(null)
+                                       ~~~~
+
+message-edit-area.tsx:1789:35 - error TS2709: Cannot use namespace 'SocialNetwork' as a type.
+
+1789     const selectedSocialNetworks: SocialNetwork[] = isFeatureEnabled('PUB_34194_COMPOSER_CRASH_ORG_SWITCH')
+                                       ~~~~~~~~~~~~~
+
+message-edit-area.tsx:1807:24 - error TS7006: Parameter 'sn' implicitly has an 'any' type.
+
+1807     const isLinkedIn = sn =>
+                            ~~
+
+message-edit-area.tsx:1825:31 - error TS2339: Property 'BOOST_LINKEDIN_OBJECTIVE_WARNING_CHANGED_TO_VIDEO' does not exist on type '{ t: (key: string) => string; }'.
+
+1825       changed_to_video: $i18n.BOOST_LINKEDIN_OBJECTIVE_WARNING_CHANGED_TO_VIDEO(),
+                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+message-edit-area.tsx:1826:36 - error TS2339: Property 'BOOST_LINKEDIN_OBJECTIVE_WARNING_CHANGED_TO_ENGAGEMENT' does not exist on type '{ t: (key: string) => string; }'.
+
+1826       changed_to_engagement: $i18n.BOOST_LINKEDIN_OBJECTIVE_WARNING_CHANGED_TO_ENGAGEMENT(),
+                                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+message-edit-area.tsx:1863:25 - error TS2339: Property 'BOOST_IG_CAROUSEL_BOOSTED_WARNING' does not exist on type '{ t: (key: string) => string; }'.
+
+1863                 ? $i18n.BOOST_IG_CAROUSEL_BOOSTED_WARNING()
+                             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+message-edit-area.tsx:1864:25 - error TS2339: Property 'BOOST_IG_CAROUSEL_WARNING' does not exist on type '{ t: (key: string) => string; }'.
+
+1864                 : $i18n.BOOST_IG_CAROUSEL_WARNING()
+                             ~~~~~~~~~~~~~~~~~~~~~~~~~
+
+message-edit-area.tsx:1873:25 - error TS2339: Property 'BOOST_LI_CAROUSEL_BOOSTED_WARNING' does not exist on type '{ t: (key: string) => string; }'.
+
+1873                 ? $i18n.BOOST_LI_CAROUSEL_BOOSTED_WARNING()
+                             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+message-edit-area.tsx:1874:25 - error TS2339: Property 'BOOST_LI_CAROUSEL_WARNING' does not exist on type '{ t: (key: string) => string; }'.
+
+1874                 : $i18n.BOOST_LI_CAROUSEL_WARNING()
+                             ~~~~~~~~~~~~~~~~~~~~~~~~~
+
+message-edit-area.tsx:1909:55 - error TS2345: Argument of type 'undefined' is not assignable to parameter of type 'SetStateAction<CampaignObjectiveChanged>'.
+
+1909             onEdit={() => setCampaignObjectiveChanged(undefined)}
+                                                           ~~~~~~~~~
+
+message-edit-area.tsx:1962:43 - error TS2709: Cannot use namespace 'OneTimeReviewers' as a type.
+
+1962   const onApproversSelected = (approvers: OneTimeReviewers) => {
+                                               ~~~~~~~~~~~~~~~~
+
+message-edit-area.tsx:2029:9 - error TS7006: Parameter 'selectedMessageCount' implicitly has an 'any' type.
+
+2029         selectedMessageCount => setSelectedMessageCount(selectedMessageCount),
+             ~~~~~~~~~~~~~~~~~~~~
+
+message-edit-area.tsx:2030:9 - error TS7006: Parameter 'state' implicitly has an 'any' type.
+
+2030         state => getSelectedMessageValue(state, 'messages', false, []).length,
+             ~~~~~
+
+message-edit-area.tsx:2034:9 - error TS7006: Parameter 'selectedMessageId' implicitly has an 'any' type.
+
+2034         selectedMessageId => setSelectedMessageId(selectedMessageId),
+             ~~~~~~~~~~~~~~~~~
+
+message-edit-area.tsx:2035:9 - error TS7006: Parameter 'state' implicitly has an 'any' type.
+
+2035         state => state.selectedMessageId,
+             ~~~~~
+
+message-edit-area.tsx:2045:9 - error TS7005: Variable 'scrollContainer' implicitly has an 'any' type.
+
+2045     if (scrollContainer) {
+             ~~~~~~~~~~~~~~~
+
+message-edit-area.tsx:2052:38 - error TS2709: Cannot use namespace 'SanitizedMessage' as a type.
+
+2052         (previewMessagesParam: Array<SanitizedMessage>) => {
+                                          ~~~~~~~~~~~~~~~~
+
+message-edit-area.tsx:2093:17 - error TS2709: Cannot use namespace 'PreviewsState' as a type.
+
+2093         (state: PreviewsState) => state.previewMessages,
+                     ~~~~~~~~~~~~~
+
+message-edit-area.tsx:2098:9 - error TS7006: Parameter 'fieldValidations' implicitly has an 'any' type.
+
+2098         fieldValidations => setFieldValidations(fieldValidations),
+             ~~~~~~~~~~~~~~~~
+
+message-edit-area.tsx:2099:9 - error TS7006: Parameter 'state' implicitly has an 'any' type.
+
+2099         state => getSelectedMessageValue(state, 'fieldValidations'),
+             ~~~~~
+
+message-edit-area.tsx:2104:9 - error TS7006: Parameter 'campaignIdParam' implicitly has an 'any' type.
+
+2104         campaignIdParam => {
+             ~~~~~~~~~~~~~~~
+
+message-edit-area.tsx:2116:9 - error TS7006: Parameter 'state' implicitly has an 'any' type.
+
+2116         state => getSelectedMessageValue(state, 'campaignId'),
+             ~~~~~
+
+message-edit-area.tsx:2120:9 - error TS7006: Parameter 'linkSettings' implicitly has an 'any' type.
+
+2120         linkSettings => {
+             ~~~~~~~~~~~~
+
+message-edit-area.tsx:2122:17 - error TS7005: Variable 'scrollContainer' implicitly has an 'any' type.
+
+2122             if (scrollContainer) {
+                     ~~~~~~~~~~~~~~~
+
+message-edit-area.tsx:2132:9 - error TS7006: Parameter 'state' implicitly has an 'any' type.
+
+2132         state => getSelectedMessageValue(state, 'linkSettings'),
+             ~~~~~
+
+message-edit-area.tsx:2137:9 - error TS7006: Parameter 'socialNetworksKeyedByIdParam' implicitly has an 'any' type.
+
+2137         socialNetworksKeyedByIdParam => {
+             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+message-edit-area.tsx:2140:17 - error TS7034: Variable 'socialProfiles' implicitly has type 'any[]' in some locations where its type cannot be determined.
+
+2140             let socialProfiles = []
+                     ~~~~~~~~~~~~~~
+
+message-edit-area.tsx:2145:15 - error TS7005: Variable 'socialProfiles' implicitly has an 'any[]' type.
+
+2145               socialProfiles,
+                   ~~~~~~~~~~~~~~
+
+message-edit-area.tsx:2153:66 - error TS7005: Variable 'socialProfiles' implicitly has an 'any[]' type.
+
+2153             const linkedInCompanyProfilesVar = getSPIdsByNetwork(socialProfiles, [SN_TYPES.LINKEDINCOMPANY])
+                                                                      ~~~~~~~~~~~~~~
+
+message-edit-area.tsx:2157:63 - error TS7005: Variable 'socialProfiles' implicitly has an 'any[]' type.
+
+2157             const facebookPageProfilesVar = getSPIdsByNetwork(socialProfiles, [SN_TYPES.FACEBOOKPAGE])
+                                                                   ~~~~~~~~~~~~~~
+
+message-edit-area.tsx:2163:9 - error TS7006: Parameter 'state' implicitly has an 'any' type.
+
+2163         state => getSelectedMessageValue(state, 'socialNetworksKeyedById'),
+             ~~~~~
+
+message-edit-area.tsx:2168:9 - error TS7006: Parameter 'albumName' implicitly has an 'any' type.
+
+2168         albumName => setAlbumName(albumName),
+             ~~~~~~~~~
+
+message-edit-area.tsx:2169:9 - error TS7006: Parameter 'state' implicitly has an 'any' type.
+
+2169         state => getSelectedMessageValue(state, 'baseMessage.albumName'),
+             ~~~~~
+
+message-edit-area.tsx:2174:9 - error TS7006: Parameter 'isBoosted' implicitly has an 'any' type.
+
+2174         isBoosted => setIsBoosted(isBoosted),
+             ~~~~~~~~~
+
+message-edit-area.tsx:2175:9 - error TS7006: Parameter 'state' implicitly has an 'any' type.
+
+2175         state => getSelectedMessageValue(state, 'isBoosted'),
+             ~~~~~
+
+message-edit-area.tsx:2179:9 - error TS7006: Parameter 'publishingMode' implicitly has an 'any' type.
+
+2179         publishingMode => setPublishingMode(publishingMode),
+             ~~~~~~~~~~~~~~
+
+message-edit-area.tsx:2180:9 - error TS7006: Parameter 'state' implicitly has an 'any' type.
+
+2180         state => getSelectedMessageValue(state, 'publishingMode'),
+             ~~~~~
+
+message-edit-area.tsx:2184:9 - error TS7006: Parameter 'socialNetworkTypesParam' implicitly has an 'any' type.
+
+2184         socialNetworkTypesParam => {
+             ~~~~~~~~~~~~~~~~~~~~~~~
+
+message-edit-area.tsx:2193:9 - error TS7006: Parameter 'state' implicitly has an 'any' type.
+
+2193         state => {
+             ~~~~~
+
+message-edit-area.tsx:2201:9 - error TS7006: Parameter 'sendDate' implicitly has an 'any' type.
+
+2201         sendDate => {
+             ~~~~~~~~
+
+message-edit-area.tsx:2207:9 - error TS7006: Parameter 'state' implicitly has an 'any' type.
+
+2207         state => getSelectedMessageValue(state, 'sendDate'),
+             ~~~~~
+
+message-edit-area.tsx:2212:9 - error TS7006: Parameter 'selectedSocialNetworkIds' implicitly has an 'any' type.
+
+2212         selectedSocialNetworkIds => setSelectedSocialNetworkIdsState(selectedSocialNetworkIds),
+             ~~~~~~~~~~~~~~~~~~~~~~~~
+
+message-edit-area.tsx:2213:9 - error TS7006: Parameter 'state' implicitly has an 'any' type.
+
+2213         state => {
+             ~~~~~
+
+message-edit-area.tsx:2219:42 - error TS7006: Parameter 'state' implicitly has an 'any' type.
+
+2219       observeStore(composerMessageStore, state => {
+                                              ~~~~~
+
+message-edit-area.tsx:2229:9 - error TS7006: Parameter 'appliedTagsParam' implicitly has an 'any' type.
+
+2229         appliedTagsParam => {
+             ~~~~~~~~~~~~~~~~
+
+message-edit-area.tsx:2234:9 - error TS7006: Parameter 'state' implicitly has an 'any' type.
+
+2234         state => getSelectedMessageValue(state, 'tags', false, []),
+             ~~~~~
+
+message-edit-area.tsx:2238:9 - error TS7006: Parameter 'appliedPublisherNotesParam' implicitly has an 'any' type.
+
+2238         appliedPublisherNotesParam => {
+             ~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+message-edit-area.tsx:2243:9 - error TS7006: Parameter 'state' implicitly has an 'any' type.
+
+2243         state => getSelectedMessageValue(state, 'publisherNotes'),
+             ~~~~~
+
+message-edit-area.tsx:2247:9 - error TS7006: Parameter 'instagramPairingErrors' implicitly has an 'any' type.
+
+2247         instagramPairingErrors => setUnpairedInstagramIds(instagramPairingErrors.map(e => e.socialProfileId)),
+             ~~~~~~~~~~~~~~~~~~~~~~
+
+message-edit-area.tsx:2247:86 - error TS7006: Parameter 'e' implicitly has an 'any' type.
+
+2247         instagramPairingErrors => setUnpairedInstagramIds(instagramPairingErrors.map(e => e.socialProfileId)),
+                                                                                          ~
+
+message-edit-area.tsx:2248:9 - error TS7006: Parameter 'state' implicitly has an 'any' type.
+
+2248         state => get(state, 'instagramPairingErrors'),
+             ~~~~~
+
+message-edit-area.tsx:2279:90 - error TS7006: Parameter 'hasSeen' implicitly has an 'any' type.
+
+2279     hasSeenPopover(ComposerConstants.INSTAGRAM_STORIES_IN_COMPOSER_ONBOARDING_SEEN).then(hasSeen => {
+                                                                                              ~~~~~~~
+
+message-edit-area.tsx:2283:80 - error TS7006: Parameter 'hasSeen' implicitly has an 'any' type.
+
+2283     hasSeenPopover(ComposerConstants.OWLY_WRITER_BANNER_IN_COMPOSER_SEEN).then(hasSeen => {
+                                                                                    ~~~~~~~
+
+message-edit-area.tsx:2288:54 - error TS7006: Parameter 'hasTagAccessEntitlement' implicitly has an 'any' type.
+
+2288       hasEntitlement(memberId, MESSAGE_TAGGING).then(hasTagAccessEntitlement => {
+                                                          ~~~~~~~~~~~~~~~~~~~~~~~
+
+message-edit-area.tsx:2293:55 - error TS7006: Parameter 'hasApprovalAccessEntitlement' implicitly has an 'any' type.
+
+2293     hasEntitlement(memberId, FLEXIBLE_APPROVALS).then(hasApprovalAccessEntitlement =>
+                                                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+message-edit-area.tsx:2354:11 - error TS2322: Type 'null' is not assignable to type 'string'.
+
+2354           lastScrapedUrl = null
+               ~~~~~~~~~~~~~~
+
+message-edit-area.tsx:2402:13 - error TS2322: Type 'null' is not assignable to type 'string'.
+
+2402             lastScrapedUrl = null
+                 ~~~~~~~~~~~~~~
+
+message-edit-area.tsx:2421:20 - error TS2345: Argument of type 'boolean | undefined' is not assignable to parameter of type 'SetStateAction<boolean>'.
+  Type 'undefined' is not assignable to type 'SetStateAction<boolean>'.
+
+2421       setIsLoading(isSendingMessage)
+                        ~~~~~~~~~~~~~~~~
+
+message-edit-area.tsx:2472:34 - error TS7006: Parameter 'publishingMode' implicitly has an 'any' type.
+
+2472   const onChangePublishingMode = publishingMode => {
+                                      ~~~~~~~~~~~~~~
+
+message-edit-area.tsx:2519:24 - error TS2709: Cannot use namespace 'SocialNetworkType' as a type.
+
+2519                 (type: SocialNetworkType) => !selectedNetworkTypes.includes(type),
+                            ~~~~~~~~~~~~~~~~~
+
+message-edit-area.tsx:2666:52 - error TS7006: Parameter 'node' implicitly has an 'any' type.
+
+2666         <EditContent className="-editContent" ref={node => (scrollContainer = node)}>
+                                                        ~~~~
+
+message-edit-area.tsx:2698:32 - error TS2339: Property 'MESSAGE_EDIT_TEXT_HEADER' does not exist on type '{ t: (key: string) => string; }'.
+
+2698               labelText={$i18n.MESSAGE_EDIT_TEXT_HEADER()}
+                                    ~~~~~~~~~~~~~~~~~~~~~~~~
+
+message-edit-area.tsx:2705:30 - error TS2709: Cannot use namespace 'Mentions' as a type.
+
+2705                 newMentions: Mentions,
+                                  ~~~~~~~~
+
+message-edit-area.tsx:2722:20 - error TS7006: Parameter 'node' implicitly has an 'any' type.
+
+2722               ref={node => (messageEditTextNode.current = node)}
+                        ~~~~
+
+message-edit-area.tsx:2982:68 - error TS2709: Cannot use namespace 'RootState' as a type.
+
+2982   reduxConnect(({ campaigns, composer, linkSettings, validation }: RootState) => ({
+                                                                        ~~~~~~~~~
+
+src/components/composer/approver-area.tsx:2:10 - error TS2305: Module '"../../types"' has no exported member 'ApproverAreaProps'.
+
+2 import { ApproverAreaProps, ApproverMember, ApproverTeam, OneTimeReviewers } from '../../types';
+           ~~~~~~~~~~~~~~~~~
+
+src/components/composer/approver-area.tsx:2:29 - error TS2305: Module '"../../types"' has no exported member 'ApproverMember'.
+
+2 import { ApproverAreaProps, ApproverMember, ApproverTeam, OneTimeReviewers } from '../../types';
+                              ~~~~~~~~~~~~~~
+
+src/components/composer/approver-area.tsx:2:45 - error TS2305: Module '"../../types"' has no exported member 'ApproverTeam'.
+
+2 import { ApproverAreaProps, ApproverMember, ApproverTeam, OneTimeReviewers } from '../../types';
+                                              ~~~~~~~~~~~~
+
+src/components/composer/approver-area.tsx:2:59 - error TS2305: Module '"../../types"' has no exported member 'OneTimeReviewers'.
+
+2 import { ApproverAreaProps, ApproverMember, ApproverTeam, OneTimeReviewers } from '../../types';
+                                                            ~~~~~~~~~~~~~~~~
+
+src/components/composer/CaptionSelection.tsx:21:22 - error TS2322: Type '{ children: Element[]; ref: RefObject<HTMLDivElement>; }' is not assignable to type 'IntrinsicAttributes & { children: ReactNode; }'.
+  Property 'ref' does not exist on type 'IntrinsicAttributes & { children: ReactNode; }'.
+
+21       <ListContainer ref={ref}>
+                        ~~~
+
+src/components/composer/CaptionSelection.tsx:29:20 - error TS2322: Type '{ children: Element[]; ref: RefObject<HTMLDivElement>; }' is not assignable to type 'IntrinsicAttributes & { children: ReactNode; }'.
+  Property 'ref' does not exist on type 'IntrinsicAttributes & { children: ReactNode; }'.
+
+29     <ListContainer ref={ref}>
+                      ~~~
+
+src/components/layout/Sidebar.tsx:112:19 - error TS18047: 'pathname' is possibly 'null'.
+
+112           active={pathname.startsWith("/automation")}
+                      ~~~~~~~~
+
+src/pages/_error.tsx:15:32 - error TS7031: Binding element 'res' implicitly has an 'any' type.
+
+15 ErrorPage.getInitialProps = ({ res, err }) => {
+                                  ~~~
+
+src/pages/_error.tsx:15:37 - error TS7031: Binding element 'err' implicitly has an 'any' type.
+
+15 ErrorPage.getInitialProps = ({ res, err }) => {
+                                       ~~~
+
+src/pages/AgendaPage.tsx:26:13 - error TS2322: Type '{ onSelectTag: (tag: any) => void; }' is not assignable to type 'IntrinsicAttributes & InstagramProductTagsComboboxProps'.
+  Property 'onSelectTag' does not exist on type 'IntrinsicAttributes & InstagramProductTagsComboboxProps'.
+
+26             onSelectTag={tag => console.log(`Selected tag "${tag}" for event ${event.id}`)}
+               ~~~~~~~~~~~
+
+src/pages/AgendaPage.tsx:26:26 - error TS7006: Parameter 'tag' implicitly has an 'any' type.
+
+26             onSelectTag={tag => console.log(`Selected tag "${tag}" for event ${event.id}`)}
+                            ~~~
+
+Tone.tsx:7:22 - error TS2709: Cannot use namespace 'ToneProps' as a type.
+
+7 const Tone: React.FC<ToneProps> = ({ title, onSelectTone }) => (
+                       ~~~~~~~~~
+
+ToneSelection.tsx:9:18 - error TS1261: Already included file name 'C:/SocialSync/Tone.tsx' differs from file name 'C:/SocialSync/tone.tsx' only in casing.
+  The file is in the program because:
+    Imported via './Tone' from file 'C:/SocialSync/ToneSelection.tsx'
+    Matched by include pattern '**/*.tsx' in 'C:/SocialSync/tsconfig.json'
+
+9 import Tone from './Tone'
+                   ~~~~~~~~
+
+  tsconfig.json:19:43
+    19   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+                                                 ~~~~~~~~~~
+    File is matched by include pattern specified here.
+
+ToneSelection.tsx:12:31 - error TS2709: Cannot use namespace 'ToneSelectionProps' as a type.
+
+12 const ToneSelection: React.FC<ToneSelectionProps> = ({ onSelectTone }) => {
+                                 ~~~~~~~~~~~~~~~~~~
+
+ToneSelection.tsx:13:29 - error TS2554: Expected 0 arguments, but got 1.
+
+13   const $i18n = useWithI18n({
+                               ~
+14     description: 'What tone of voice do you prefer?',
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+15   })
+   ~~~
+
+ToneSelection.tsx:19:27 - error TS2339: Property 'description' does not exist on type '{ t: (key: string) => string; }'.
+
+19       <Description>{$i18n.description()}</Description>
+                             ~~~~~~~~~~~
+
+
+Found 317 errors in 14 files.
+
+Errors  Files
+    44  approver-area.tsx:47
+     5  CaptionSelection.tsx:10
+    63  combobox.tsx:101
+     6  Content.tsx:14
+     2  contstants.ts:2
+     4  FeatureSelection.tsx:14
+   177  message-edit-area.tsx:178
+     4  src/components/composer/approver-area.tsx:2
+     2  src/components/composer/CaptionSelection.tsx:21
+     1  src/components/layout/Sidebar.tsx:112
+     2  src/pages/_error.tsx:15
+     2  src/pages/AgendaPage.tsx:26
+     1  Tone.tsx:7
+     4  ToneSelection.tsx:9
+PS C:\SocialSync>

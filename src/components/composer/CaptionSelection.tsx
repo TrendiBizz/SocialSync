@@ -1,32 +1,41 @@
-﻿import { useRef, useState, useEffect } from "react";
-import { CaptionSelectionProps } from "@/types";
-import { ListContainer } from "./featureSelection.styles.ts";
-import { SyncContainer, NoCaptionsTitle, NoCaptionsMessage } from "./Caption.styles";
-import { FaSyncAlt } from "react-icons/fa";
+﻿import React, { useRef } from "react";
+import { ListContainer } from "./featureSelection.styles";
+import {
+  NoCaptionsTitle,
+  NoCaptionsMessage
+} from "../dm-automation/Caption.styles";
 
-export default function CaptionSelection({ selectedCaption, onSelect }: CaptionSelectionProps) {
-  const [captions, setCaptions] = useState<string[]>([]);
-  const captionsRef = useRef<HTMLDivElement>(null);
+interface CaptionSelectionProps {
+  captions: string[];
+  onCaptionSelected: (caption: string) => void;
+}
 
-  useEffect(() => {
-    setCaptions(["Caption 1", "Caption 2", "Caption 3"]);
-  }, []);
+export default function CaptionSelection({
+  captions,
+  onCaptionSelected,
+}: CaptionSelectionProps) {
+  const ref = useRef<HTMLDivElement>(null);
+
+  if (!captions || captions.length === 0) {
+    return (
+      <ListContainer ref={ref}>
+        <NoCaptionsTitle />
+        <NoCaptionsMessage />
+      </ListContainer>
+    );
+  }
 
   return (
-    <ListContainer ref={captionsRef}>
-      {captions.length > 0 ? (
-        captions.map((caption, index) => (
-          <div key={index} onClick={() => onSelect(caption)}>
-            {caption}
-          </div>
-        ))
-      ) : (
-        <SyncContainer>
-          <FaSyncAlt />
-          <NoCaptionsTitle>No Captions</NoCaptionsTitle>
-          <NoCaptionsMessage>Try syncing again later.</NoCaptionsMessage>
-        </SyncContainer>
-      )}
+    <ListContainer ref={ref}>
+      {captions.map((c) => (
+        <p
+          key={c}
+          className="cursor-pointer hover:underline"
+          onClick={() => onCaptionSelected(c)}
+        >
+          {c}
+        </p>
+      ))}
     </ListContainer>
   );
 }

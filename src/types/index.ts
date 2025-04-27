@@ -1,4 +1,30 @@
-﻿export interface CaptionSelectionProps {
-  selectedCaption: string;
-  onSelect: (caption: string) => void;
-}
+﻿export interface ApproverAreaProps {}
+export interface ApproverMember { memberId: string }
+export interface ApproverTeam { teamId: string }
+export interface OneTimeReviewers {}
+export interface SocialProfileState {}
+export interface OrganizationState {}
+export interface CaptionSelectionProps {}
+export interface AIPanelContentProps {}
+export interface Campaign {}
+export interface AppDispatch {}
+export interface SocialNetworkType {}
+export interface Flux {}
+export interface Message {}
+export interface EditMode {}
+export interface AttachmentData {}
+export interface Mentions {}
+export interface SocialNetworkGroup {}
+export interface ErrorType {}
+export interface AttachmentObject {}
+export interface Organization {}
+export interface Preset {}
+export interface SocialNetwork {}
+export interface Tag {}
+export interface TrackingContext {}
+export interface FieldValidations {}
+export interface LinkSettings {}
+export interface URLPreview {}
+export interface SanitizedMessage {}
+export interface PreviewsState {}
+export interface RootState {}
