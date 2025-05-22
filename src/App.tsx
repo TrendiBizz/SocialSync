@@ -136,14 +136,17 @@ function App() {
 
   const handleMainAction = () => {
     const platformInfo = PLATFORM_DETAILS[selectedPlatform];
-    const currentText = postText;
+    const currentText = postText; // Keep currentText for other platforms or future use
 
-    if (platformInfo.shareType === 'intent' && !currentText.trim()) {
+    // Text is only required for platforms that use it in the URL and aren't Facebook (for this test)
+    if (platformInfo.shareType === 'intent' && selectedPlatform !== 'facebook' && !currentText.trim()) {
         alert(`Please enter some text to post to ${platformInfo.name}.`);
         return;
     }
+     // For Facebook, we're not checking postText.trim() for this specific test
+     // as we are removing the quote parameter for now.
 
-    logPostAttempt(selectedPlatform, currentText);
+    logPostAttempt(selectedPlatform, currentText); // Still log the attempt with text
 
     if (platformInfo.charLimit && currentText.length > platformInfo.charLimit) {
       alert(`Your post is ${currentText.length - platformInfo.charLimit} characters over the limit for ${platformInfo.name}! Please shorten it.`);
@@ -151,25 +154,28 @@ function App() {
     }
 
     if (platformInfo.shareType === 'intent' && platformInfo.urlBase) {
-      const encodedText = encodeURIComponent(currentText);
       let shareUrl = '';
-      
+      let windowFeatures = 'noopener'; // Default, noreferrer removed from previous test
+
       if (selectedPlatform === 'facebook') {
-        const urlToShare = encodeURIComponent(window.location.href); // Use the current page's URL
-        shareUrl = `${platformInfo.urlBase}?u=${urlToShare}"e=${encodedText}`;
+        const urlToShare = encodeURIComponent(window.location.href);
+        shareUrl = `${platformInfo.urlBase}?u=${urlToShare}`; // SIMPLIFIED: Only 'u' parameter
       } else if (selectedPlatform === 'twitter') {
+        const encodedText = encodeURIComponent(currentText);
         shareUrl = `${platformInfo.urlBase}${encodedText}`;
       } else {
-        shareUrl = `${platformInfo.urlBase}${encodedText}`; 
+        // Generic fallback for other intent types, assuming they take text
+        const encodedText = encodeURIComponent(currentText);
+        shareUrl = `${platformInfo.urlBase}${encodedText}`;
       }
-      window.open(shareUrl, '_blank', 'noopener,noreferrer');
+      window.open(shareUrl, '_blank', windowFeatures);
     } else if ((platformInfo.shareType === 'prep_linkedin' || platformInfo.shareType === 'prep_generic') && platformInfo.urlBase) {
       let message = `${platformInfo.name} Post Prep:\n\n`;
       if (platformInfo.name === 'Instagram') message += "1. Remember an image/video!\n";
       if (currentText.trim()) message += `${platformInfo.name === 'Instagram' ? '2.' : '1.'} Your text (ready to copy):\n   "${currentText}"\n`;
       message += `${platformInfo.name === 'Instagram' && currentText.trim() ? '3.' : (currentText.trim() ? '2.' : '1.')} We'll open ${platformInfo.name}.`;
       alert(message);
-      window.open(platformInfo.urlBase, '_blank', 'noopener,noreferrer');
+      window.open(platformInfo.urlBase, '_blank', 'noopener,noreferrer'); // Can keep noreferrer for these
     }
   };
 
@@ -255,7 +261,8 @@ function App() {
           <button
               className="main-action-button"
               onClick={handleMainAction}
-              disabled={(platformCharLimit !== undefined && postText.length > platformCharLimit) || (PLATFORM_DETAILS[selectedPlatform].shareType === 'intent' && !postText.trim())}
+              // For this test, the button is enabled even if text is empty for Facebook
+              disabled={ (selectedPlatform !== 'facebook' && platformInfo.shareType === 'intent' && !postText.trim()) || (platformCharLimit !== undefined && postText.length > platformCharLimit) }
           >
               {PLATFORM_DETAILS[selectedPlatform].shareType === 'intent' ? 'Post to ' : 'Prep for '}
               {PLATFORM_DETAILS[selectedPlatform].name}
