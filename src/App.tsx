@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 
 // --- SVG Logo Components ---
-// Using a generic type for props to allow passing className, etc.
 type SVGProps = React.SVGProps<SVGSVGElement>;
 
 const XLogo = (props: SVGProps) => (
@@ -27,7 +26,6 @@ const InstagramLogo = (props: SVGProps) => (
     <path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8c1.99 0 3.6-1.61 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8 1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z" />
   </svg>
 );
-// --- End SVG Logo Components ---
 
 type Platform = 'twitter' | 'facebook' | 'linkedin' | 'instagram';
 
@@ -44,17 +42,16 @@ interface DraftEntry {
   timestamp: string;
 }
 
-// UPDATED PLATFORM_DETAILS to include logo React Components
 const PLATFORM_DETAILS: Record<Platform, {
   name: string;
-  logo: (props: SVGProps) => JSX.Element; // Changed type to React component
+  logo: (props: SVGProps) => JSX.Element;
   charLimit?: number;
   urlBase?: string;
   shareType: 'intent' | 'prep_generic' | 'prep_linkedin';
   dialClass: string
 }> = {
   twitter: { name: 'X', logo: XLogo, charLimit: 280, shareType: 'intent', urlBase: 'https://twitter.com/intent/tweet?text=', dialClass: 'twitter-dial-button' },
-  facebook: { name: 'FB', logo: FacebookLogo, shareType: 'intent', urlBase: 'https://www.facebook.com/sharer/sharer.php', dialClass: 'facebook-dial-button' }, // urlBase simplified, full construction in handler
+  facebook: { name: 'FB', logo: FacebookLogo, shareType: 'intent', urlBase: 'https://www.facebook.com/sharer/sharer.php', dialClass: 'facebook-dial-button' },
   linkedin: { name: 'LI', logo: LinkedInLogo, shareType: 'prep_linkedin', urlBase: 'https://www.linkedin.com/feed/', dialClass: 'linkedin-dial-button' },
   instagram: { name: 'IG', logo: InstagramLogo, shareType: 'prep_generic', urlBase: 'https://www.instagram.com', dialClass: 'instagram-dial-button' },
 };
@@ -158,14 +155,12 @@ function App() {
       let shareUrl = '';
       
       if (selectedPlatform === 'facebook') {
-        // For Facebook, 'u' is the URL to share, 'quote' is the prefilled text
-        const urlToShare = encodeURIComponent('https://example.com'); // Replace with actual URL or make dynamic
+        const urlToShare = encodeURIComponent(window.location.href); // Use the current page's URL
         shareUrl = `${platformInfo.urlBase}?u=${urlToShare}"e=${encodedText}`;
       } else if (selectedPlatform === 'twitter') {
         shareUrl = `${platformInfo.urlBase}${encodedText}`;
       } else {
-         // Fallback for other intent types if they exist or for generic handling
-        shareUrl = `${platformInfo.urlBase}${encodedText}`;
+        shareUrl = `${platformInfo.urlBase}${encodedText}`; 
       }
       window.open(shareUrl, '_blank', 'noopener,noreferrer');
     } else if ((platformInfo.shareType === 'prep_linkedin' || platformInfo.shareType === 'prep_generic') && platformInfo.urlBase) {
@@ -222,7 +217,7 @@ function App() {
         <div className="dial-container">
           {(Object.keys(PLATFORM_DETAILS) as Platform[]).map(platformKey => {
             const platform = PLATFORM_DETAILS[platformKey];
-            const LogoComponent = platform.logo; // Get the Logo React Component
+            const LogoComponent = platform.logo;
             return (
               <button
                 key={platformKey}
