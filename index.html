@@ -1,15 +1,45 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" /> <!-- You can change this to your own favicon.png later -->
+    <!-- Link to the new favicon in the public folder -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" /> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#8A2BE2" /> <!-- Add this line (matches manifest theme_color) -->
-    <title>SocialSync</title> <!-- Ensure title is good -->
-    <script type="module" crossorigin src="/SocialSync/assets/index-dhGTIyBd.js"></script>
+    <title>SocialSync</title>
+    <!-- 
+      vite-plugin-pwa should handle injecting the manifest link, 
+      but if not, ensure it's present:
+    -->
+    <link rel="manifest" href="/manifest.webmanifest">
+    <!-- Any other meta tags or links for PWA features (e.g., theme-color, Apple touch icons) -->
+    <meta name="theme-color" content="#8A2BE2">
+
+    <script type="module" crossorigin src="/SocialSync/assets/index-BmcPfWsi.js"></script>
     <link rel="stylesheet" crossorigin href="/SocialSync/assets/index-B0yvMjBx.css">
   <link rel="manifest" href="/SocialSync/manifest.webmanifest"><script id="vite-plugin-pwa:register-sw" src="/SocialSync/registerSW.js"></script></head>
   <body>
     <div id="root"></div>
+
+    <!-- Facebook SDK for JavaScript -->
+    <script>
+      window.fbAsyncInit = function() {
+        FB.init({
+          appId      : '676274422041376', // YOUR FACEBOOK APP ID
+          cookie     : true,  // Enable cookies to allow the server to access the session.
+          xfbml      : true,  // Parse social plugins on this webpage.
+          version    : 'v19.0' // Or the latest available Graph API version
+        });
+        // FB.AppEvents.logPageView(); // Optional for Facebook Analytics
+      };
+
+      (function(d, s, id){
+         var js, fjs = d.getElementsByTagName(s)[0];
+         if (d.getElementById(id)) {return;}
+         js = d.createElement(s); js.id = id;
+         js.src = "https://connect.facebook.net/en_US/sdk.js";
+         fjs.parentNode.insertBefore(js, fjs);
+       }(document, 'script', 'facebook-jssdk'));
+    </script>
+    <!-- End Facebook SDK -->
   </body>
 </html>
